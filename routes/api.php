@@ -14,6 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::namespace('Api')
+     ->middleware('auth:sanctum')
+     ->group(static function () {
+         Route::namespace('V1')
+              ->prefix('v1')
+              ->name('v1.')
+              ->group(static function () {
+                  Route::apiResource('notes', 'NotesController');
+
+                  Route::get('users/{user}/notes', 'UsersController@notes')
+                       ->name('users.notes');
+
+                  Route::apiResource('users', 'UsersController');
+
+                  Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+                      return $request->user();
+                  })->name('user.fetch');
+              });
+     });
