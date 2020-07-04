@@ -2,15 +2,23 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
-{
+/**
+ * Class DatabaseSeeder
+ */
+class DatabaseSeeder extends Seeder {
+
     /**
      * Seed the application's database.
      *
      * @return void
      */
-    public function run()
-    {
-        // $this->call(UserSeeder::class);
+    public function run(): void {
+        $this->call(
+            [
+                ManualSeeder::class,
+                UserSeeder::class,
+                NoteSeeder::class,
+            ]
+        );
     }
 }
