@@ -46,8 +46,8 @@ const actions = {
      */
     getCookie() {
         axios.get('sanctum/csrf-cookie')
-             .then(res => console.log(res))
-             .catch(err => console.log(err));
+             .then(() => console.log('csrf obtained'))
+             .catch(() => console.log('csrf not obtained'));
     },
     /**
      * Logs a user in and returns a promise
@@ -56,7 +56,7 @@ const actions = {
      * @param user
      * @return {Promise<unknown>}
      */
-    async login({commit, dispatch}, user) {
+    login({commit, dispatch}, user) {
         return new Promise((resolve, reject) => {
             let {username, password} = user;
 
@@ -73,6 +73,29 @@ const actions = {
                  .catch(err => {
                      console.log(err);
                      commit("SET_ERRORS", err.response.data.errors);
+                     reject(true);
+                 });
+        });
+    },
+    /**
+     * Registers a new user
+     * @param commit
+     * @param dispatch
+     * @param user
+     * @return {Promise<unknown>}
+     */
+    register({commit, dispatch}, user) {
+        return new Promise((resolve, reject) => {
+            dispatch('getCookie');
+
+            axios.post('/register', user)
+                 .then(() => {
+                     commit('SET_ERRORS', {});
+                     dispatch('fetchUser');
+                     resolve(true);
+                 })
+                 .catch(err => {
+                     commit('SET_ERRORS', err.response.data.errors);
                      reject(true);
                  });
         });

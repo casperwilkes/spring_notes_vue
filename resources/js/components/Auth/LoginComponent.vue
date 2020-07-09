@@ -5,7 +5,7 @@
                 <div class="card-header">Login</div>
 
                 <div class="card-body">
-                    <form @submit.prevent="login" novalidate>
+                    <form @submit.prevent="login">
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right" for="email">Email-Address</label>
 
@@ -22,9 +22,8 @@
                                     v-model.trim="email"
                                     value="">
 
-                                <span :key="eid" class="invalid-feedback" role="alert" v-for="(emess, eid) in errors.email" v-if="errors.email">
-                                    <strong>{{emess}}</strong>
-                                </span>
+                                <FormErrorComponent :errors="errors.email"/>
+
                             </div>
                         </div>
 
@@ -41,9 +40,8 @@
                                        type="password"
                                        v-model.trim="password">
 
-                                <span :key="pid" class="invalid-feedback" role="alert" v-for="(pmess, pid) in errors.password" v-if="errors.password">
-                                    <strong>{{pmess}}</strong>
-                                </span>
+                                <FormErrorComponent :errors="errors.password"/>
+
                             </div>
                         </div>
 
@@ -75,8 +73,12 @@
 </template>
 <script>
     import {mapGetters} from 'vuex';
+    import FormErrorComponent from "../Elements/Form/FormErrorComponent";
 
     export default {
+        components: {
+            FormErrorComponent
+        },
         data() {
             return {
                 password: null,
@@ -88,9 +90,6 @@
                 'errors',
                 'logged_in'
             ]),
-        },
-        mounted() {
-
         },
         methods: {
             login: function () {

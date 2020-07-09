@@ -4,7 +4,8 @@ import VueRouter from 'vue-router';
 const Home = () => import('../components/HomeComponent');
 const ApiComponent = () => import('../components/ApiComponent');
 const NotesComponent = () => import('../components/Notes/NotesComponent');
-const Login = () => import('../components/Auth/LoginComponent');
+const LoginComponent = () => import('../components/Auth/LoginComponent');
+const RegisterComponent = () => import('../components/Auth/RegisterComponent');
 
 Vue.use(VueRouter);
 
@@ -32,7 +33,12 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: Login
+        component: LoginComponent
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: RegisterComponent
     }
 ];
 
