@@ -1,13 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from '../store/store';
 
+Vue.use(VueRouter);
 const Home = () => import('../components/HomeComponent');
 const ApiComponent = () => import('../components/ApiComponent');
 const NotesComponent = () => import('../components/Notes/NotesComponent');
 const LoginComponent = () => import('../components/Auth/LoginComponent');
 const RegisterComponent = () => import('../components/Auth/RegisterComponent');
 
-Vue.use(VueRouter);
 
 const routes = [
     {
@@ -28,7 +29,10 @@ const routes = [
     {
         path: '/notes',
         name: 'notes',
-        component: NotesComponent
+        component: NotesComponent,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/login',
@@ -48,6 +52,18 @@ const router = new VueRouter({
     routes,
     linkActiveClass: 'active',
     linkExactActiveClass: 'exact-active'
+});
+
+router.beforeEach((to, from, next) => {
+    // Check if route has auth field //
+    if (to.matched.some(record => record.meta.auth)) {
+        // Check if user currently logged in //
+        if (!store.getters.logged_in) {
+            next('login');
+        }
+    }
+
+    next();
 });
 
 export default router;

@@ -32,10 +32,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    <li class=nav-item>
+                    <li class="nav-item">
                         <router-link to="api" class="nav-link">Api</router-link>
                     </li>
-                    <li class=nav-item v-if="this.$store.getters.logged_in">
+                    <li class="nav-item" v-if="this.$store.getters.logged_in">
                         <router-link to="notes" class="nav-link">Notes</router-link>
                     </li>
                 </ul>
