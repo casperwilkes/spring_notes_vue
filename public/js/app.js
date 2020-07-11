@@ -62913,6 +62913,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      /**
+       * Currently at bottom of page
+       *  Note: Infinite scrolling
+       */
+      page_bottom: false
+    };
+  },
   methods: {
     /**
      * Global logout method
@@ -62923,6 +62932,18 @@ __webpack_require__.r(__webpack_exports__);
       this.$store.dispatch('logout').then(function () {
         return _this.$router.push('login');
       });
+    },
+
+    /**
+     * Global method for checking end of page
+     *  Note: for infinite pagination
+     */
+    scroll: function scroll() {
+      var _this2 = this;
+
+      window.onscroll = function () {
+        _this2.page_bottom = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight;
+      };
     }
   }
 });

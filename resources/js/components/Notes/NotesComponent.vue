@@ -10,20 +10,33 @@
     export default {
         data() {
             return {
-                notes: {}
+                page: 1,
+                notes: []
             };
+        },
+        watch: {
+            page_bottom: function (newVal) {
+                if (newVal) {
+                    this.page++;
+                    this.getNotes();
+                }
+            }
         },
         components: {
             NoteBodyComponent
         },
         mounted() {
-            axios.get(`/api/v1/notes`)
-                 .then(res => {
-                     this.notes = res.data.data;
-                     console.log(res.data);
-                 })
-                 .catch(err => console.log(err));
+            this.scroll();
+            this.getNotes();
         },
-        methods: {}
+        methods: {
+            getNotes: function () {
+                axios.get(`/api/v1/notes?page=${this.page}`)
+                     .then(res => {
+                         this.notes.push(...res.data.data);
+                     })
+                     .catch(err => console.log(err));
+            }
+        }
     }
 </script>
