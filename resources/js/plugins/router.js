@@ -10,7 +10,9 @@ const RegisterComponent = () => import('../components/Auth/RegisterComponent');
 
 const NotesComponent = () => import('../components/Notes/NotesComponent');
 const NotesIndexComponent = () => import('../components/Notes/NotesIndexComponent');
+const NotesCreateComponent = () => import('../components/Notes/NotesCreateComponent');
 const NotesEditComponent = () => import('../components/Notes/NotesEditComponent');
+const NotesUserComponent = () => import('../components/Notes/NotesUserComponent');
 
 const routes = [
     {
@@ -39,6 +41,20 @@ const routes = [
                 path: '',
                 name: 'notes',
                 component: NotesIndexComponent
+            },
+            {
+                path: 'create',
+                name: 'notes_create',
+                component: NotesCreateComponent
+            },
+            {
+                path: 'edit/:id',
+                name: 'notes_edit',
+                component: NotesEditComponent
+            }, {
+                path: 'user/:user?',
+                name: 'notes_user',
+                component: NotesUserComponent
             }
         ]
     },
@@ -59,7 +75,7 @@ const router = new VueRouter({
     mode: 'history',
     routes,
     linkActiveClass: 'active',
-    linkExactActiveClass: 'exact-active'
+    linkExactActiveClass: 'active'
 });
 
 router.beforeEach((to, from, next) => {

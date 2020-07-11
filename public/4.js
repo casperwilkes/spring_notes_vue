@@ -13,6 +13,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -32,7 +55,77 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("router-view")
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "row mb-3" }, [
+        _c("div", { staticClass: "col-md-4" }, [
+          _c("div", { staticClass: "border-dark shadow nav-fill" }, [
+            _c(
+              "nav",
+              { staticClass: "nav nav-pills" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-item nav-link",
+                    attrs: { to: { name: "notes" }, exact: "" }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: ["fas", "stream"] }
+                    }),
+                    _vm._v(
+                      "\n                        All Notes\n                    "
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-item nav-link",
+                    attrs: { to: { name: "notes_create" } }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: ["fas", "folder-plus"] }
+                    }),
+                    _vm._v(
+                      "\n                        New Note\n                    "
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-item nav-link",
+                    attrs: { to: { name: "notes_user" } }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: ["fas", "folder"] }
+                    }),
+                    _vm._v(
+                      "\n                        My Notes\n                    "
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("router-view")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
