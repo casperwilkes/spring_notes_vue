@@ -1,42 +1,7 @@
 <template>
-    <div>
-        <NoteBodyComponent :key="nid" :note="note" v-for="(note, nid) in notes"/>
-    </div>
+    <router-view />
 </template>
 
 <script>
-    import NoteBodyComponent from './Elements/NoteBodyComponent';
-
-    export default {
-        data() {
-            return {
-                page: 1,
-                notes: []
-            };
-        },
-        watch: {
-            page_bottom: function (newVal) {
-                if (newVal) {
-                    this.page++;
-                    this.getNotes();
-                }
-            }
-        },
-        components: {
-            NoteBodyComponent
-        },
-        mounted() {
-            this.scroll();
-            this.getNotes();
-        },
-        methods: {
-            getNotes: function () {
-                axios.get(`/api/v1/notes?page=${this.page}`)
-                     .then(res => {
-                         this.notes.push(...res.data.data);
-                     })
-                     .catch(err => console.log(err));
-            }
-        }
-    }
+    export default {}
 </script>

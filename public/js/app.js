@@ -63035,16 +63035,24 @@ var ApiComponent = function ApiComponent() {
   return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../components/ApiComponent */ "./resources/js/components/ApiComponent.vue"));
 };
 
-var NotesComponent = function NotesComponent() {
-  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesComponent */ "./resources/js/components/Notes/NotesComponent.vue"));
-};
-
 var LoginComponent = function LoginComponent() {
   return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../components/Auth/LoginComponent */ "./resources/js/components/Auth/LoginComponent.vue"));
 };
 
 var RegisterComponent = function RegisterComponent() {
   return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../components/Auth/RegisterComponent */ "./resources/js/components/Auth/RegisterComponent.vue"));
+};
+
+var NotesComponent = function NotesComponent() {
+  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesComponent */ "./resources/js/components/Notes/NotesComponent.vue"));
+};
+
+var NotesIndexComponent = function NotesIndexComponent() {
+  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesIndexComponent */ "./resources/js/components/Notes/NotesIndexComponent.vue"));
+};
+
+var NotesEditComponent = function NotesEditComponent() {
+  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesEditComponent */ "./resources/js/components/Notes/NotesEditComponent.vue"));
 };
 
 var routes = [{
@@ -63061,14 +63069,14 @@ var routes = [{
   component: ApiComponent
 }, {
   path: '/notes',
-  name: 'notes',
   component: NotesComponent,
   meta: {
     auth: true
   },
   children: [{
-    path: '/edit',
-    name: 'notes_edit'
+    path: '',
+    name: 'notes',
+    component: NotesIndexComponent
   }]
 }, {
   path: '/login',

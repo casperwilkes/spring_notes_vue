@@ -5,10 +5,12 @@ import store from '../store/store';
 Vue.use(VueRouter);
 const Home = () => import('../components/HomeComponent');
 const ApiComponent = () => import('../components/ApiComponent');
-const NotesComponent = () => import('../components/Notes/NotesComponent');
 const LoginComponent = () => import('../components/Auth/LoginComponent');
 const RegisterComponent = () => import('../components/Auth/RegisterComponent');
 
+const NotesComponent = () => import('../components/Notes/NotesComponent');
+const NotesIndexComponent = () => import('../components/Notes/NotesIndexComponent');
+const NotesEditComponent = () => import('../components/Notes/NotesEditComponent');
 
 const routes = [
     {
@@ -28,11 +30,17 @@ const routes = [
     },
     {
         path: '/notes',
-        name: 'notes',
         component: NotesComponent,
         meta: {
             auth: true
-        }
+        },
+        children: [
+            {
+                path: '',
+                name: 'notes',
+                component: NotesIndexComponent
+            }
+        ]
     },
     {
         path: '/login',

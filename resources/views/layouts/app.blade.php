@@ -23,7 +23,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <router-link to="home" class="navbar-brand">{{ config('app.name', 'Laravel') }}</router-link>
+            <router-link :to="{name: 'home'}" class="navbar-brand">{{ config('app.name', 'Laravel') }}</router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -33,10 +33,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <router-link to="api" class="nav-link">Api</router-link>
+                        <router-link :to="{name:'api'}" class="nav-link">Api</router-link>
                     </li>
                     <li class="nav-item" v-if="this.$store.getters.logged_in">
-                        <router-link to="notes" class="nav-link">Notes</router-link>
+                        <router-link :to="{name: 'notes'}" class="nav-link">Notes</router-link>
                     </li>
                 </ul>
 
@@ -44,10 +44,10 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     <li v-if="!this.$store.getters.logged_in" class="nav-item">
-                        <router-link to="login" class="nav-link">Login</router-link>
+                        <router-link :to="{name: 'login'}" class="nav-link">Login</router-link>
                     </li>
                     <li v-if="!this.$store.getters.logged_in" class="nav-item">
-                        <router-link to="register" class="nav-link">Register</router-link>
+                        <router-link to="{name: 'register'}" class="nav-link">Register</router-link>
                     </li>
                     <li v-if="this.$store.getters.logged_in" class="nav-item dropdown" >
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
