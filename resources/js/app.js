@@ -10,6 +10,8 @@ import mixins from './includes/mixins';
 
 require('./bootstrap');
 require('./plugins/flash');
+require('./plugins/moment');
+require('./plugins/fontAwesome');
 
 window.Vue = require('vue');
 window.Vue.mixin(mixins);
