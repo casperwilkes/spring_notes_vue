@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Auth;
  */
 class NotesController extends Controller {
 
+    public function __construct() {
+        $this->authorizeResource(Note::class, 'note');
+    }
+
     /**
      * Display a listing of the resource.
      *
