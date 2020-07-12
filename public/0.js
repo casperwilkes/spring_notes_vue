@@ -113,21 +113,37 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v(
-                "\n                    Created by\n                    " +
-                  _vm._s(_vm.note.author.name) +
-                  "\n                    "
-              ),
-              _c("br"),
-              _vm._v(
-                "\n                    on " +
-                  _vm._s(
-                    _vm._f("moment")(_vm.note.created_at, _vm.date_format)
-                  ) +
-                  "\n                "
-              )
-            ]),
+            _c(
+              "p",
+              { staticClass: "card-text" },
+              [
+                _vm._v(
+                  "\n                    Created by\n                    "
+                ),
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: {
+                        name: "notes_user",
+                        params: { user: _vm.note.author.id }
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.note.author.name))]
+                ),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(
+                  "\n                    on " +
+                    _vm._s(
+                      _vm._f("moment")(_vm.note.created_at, _vm.date_format)
+                    ) +
+                    "\n                "
+                )
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
               _vm._v(

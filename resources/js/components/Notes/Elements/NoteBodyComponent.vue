@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <p class="card-text">
                         Created by
-                        {{note.author.name}}
+                        <router-link :to="{name: 'notes_user', params: {user: note.author.id}}">{{note.author.name}}</router-link>
                         <br/>
                         on {{ note.created_at | moment(date_format)}}
                     </p>
