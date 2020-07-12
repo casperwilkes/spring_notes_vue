@@ -31,7 +31,7 @@
                             <label class="col-md-4 col-form-label text-md-right" for="password">Password</label>
 
                             <div class="col-md-6">
-                                <input :class="errors.password != undefined? 'is-invalid':''"
+                                <input :class="errors.password !== undefined? 'is-invalid':''"
                                        autocomplete="current-password"
                                        class="form-control"
                                        id="password"

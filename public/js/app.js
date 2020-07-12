@@ -70049,39 +70049,39 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 var Home = function Home() {
-  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../components/HomeComponent */ "./resources/js/components/HomeComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../components/HomeComponent */ "./resources/js/components/HomeComponent.vue"));
 };
 
 var ApiComponent = function ApiComponent() {
-  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../components/ApiComponent */ "./resources/js/components/ApiComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../components/ApiComponent */ "./resources/js/components/ApiComponent.vue"));
 };
 
 var LoginComponent = function LoginComponent() {
-  return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../components/Auth/LoginComponent */ "./resources/js/components/Auth/LoginComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../components/Auth/LoginComponent */ "./resources/js/components/Auth/LoginComponent.vue"));
 };
 
 var RegisterComponent = function RegisterComponent() {
-  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../components/Auth/RegisterComponent */ "./resources/js/components/Auth/RegisterComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../components/Auth/RegisterComponent */ "./resources/js/components/Auth/RegisterComponent.vue"));
 };
 
 var NotesComponent = function NotesComponent() {
-  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesComponent */ "./resources/js/components/Notes/NotesComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesComponent */ "./resources/js/components/Notes/NotesComponent.vue"));
 };
 
 var NotesIndexComponent = function NotesIndexComponent() {
-  return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesIndexComponent */ "./resources/js/components/Notes/NotesIndexComponent.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesIndexComponent */ "./resources/js/components/Notes/NotesIndexComponent.vue"));
 };
 
 var NotesCreateComponent = function NotesCreateComponent() {
-  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesCreateComponent */ "./resources/js/components/Notes/NotesCreateComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesCreateComponent */ "./resources/js/components/Notes/NotesCreateComponent.vue"));
 };
 
 var NotesEditComponent = function NotesEditComponent() {
-  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesEditComponent */ "./resources/js/components/Notes/NotesEditComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesEditComponent */ "./resources/js/components/Notes/NotesEditComponent.vue"));
 };
 
 var NotesUserComponent = function NotesUserComponent() {
-  return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesUserComponent */ "./resources/js/components/Notes/NotesUserComponent.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesUserComponent */ "./resources/js/components/Notes/NotesUserComponent.vue"));
 };
 
 var routes = [{

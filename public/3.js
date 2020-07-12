@@ -1,14 +1,16 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HomeComponent.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HomeComponent.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ApiComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ApiComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _includes_examples_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../includes/examples.json */ "./resources/js/includes/examples.json");
+var _includes_examples_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../includes/examples.json */ "./resources/js/includes/examples.json", 1);
 //
 //
 //
@@ -49,18 +51,143 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      Examples: _includes_examples_json__WEBPACK_IMPORTED_MODULE_0__
+    };
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    // Add prettyprint cdn to page //
+    var pretty = document.createElement('script');
+    pretty.setAttribute('src', 'https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert');
+    document.head.appendChild(pretty);
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HomeComponent.vue?vue&type=template&id=782dcf83&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HomeComponent.vue?vue&type=template&id=782dcf83& ***!
-  \****************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ApiComponent.vue?vue&type=template&id=6c5c3a6e&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ApiComponent.vue?vue&type=template&id=6c5c3a6e& ***!
+  \***************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -74,8 +201,170 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "row justify-content-center" },
-    [_vm._m(0), _vm._v(" "), _c("FlashMessage")],
+    { staticClass: "row justify-content-center", attrs: { id: "api" } },
+    [
+      _c("div", { staticClass: "col-sm-10" }, [
+        _c("div", { staticClass: "card shadow" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "card mb-2" }, [
+              _c("h1", { staticClass: "card-header text-center" }, [
+                _vm._v("Interacting")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint lang-json" }, [
+                  _vm._v(
+                    _vm._s(
+                      JSON.stringify(_vm.Examples.response_schema, null, 4)
+                    )
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "card mb-2" }, [
+              _c("p", { staticClass: "h3 card-header" }, [
+                _vm._v("Getting all notes")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint lang-json" }, [
+                  _vm._v(_vm._s(JSON.stringify(_vm.Examples.get_all, null, 4)))
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card mb-2" }, [
+              _c("p", { staticClass: "h3 card-header" }, [
+                _vm._v("Getting a note by id")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(3),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint lang-json" }, [
+                  _vm._v(_vm._s(JSON.stringify(_vm.Examples.by_id, null, 4)))
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card mb-2" }, [
+              _c("p", { staticClass: "h3 card-header" }, [
+                _vm._v("Getting all notes for a user")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(4),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint lang-json" }, [
+                  _vm._v(_vm._s(JSON.stringify(_vm.Examples.all_user, null, 4)))
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card mb-2" }, [
+              _c("p", { staticClass: "h3 card-header" }, [
+                _vm._v("Create a new note")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(5),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint json" }, [
+                  _vm._v(
+                    _vm._s(
+                      JSON.stringify(_vm.Examples.new_note.schema, null, 4)
+                    )
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(6),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint json" }, [
+                  _vm._v(
+                    _vm._s(
+                      JSON.stringify(_vm.Examples.new_note.example, null, 4)
+                    )
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(7),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint json" }, [
+                  _vm._v(
+                    _vm._s(
+                      JSON.stringify(_vm.Examples.new_note.response, null, 4)
+                    )
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card mb-2" }, [
+              _c("p", { staticClass: "h3 card-header" }, [
+                _vm._v("Update a note")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(8),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint json" }, [
+                  _vm._v(
+                    _vm._s(
+                      JSON.stringify(_vm.Examples.update_note.schema, null, 4)
+                    )
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(9),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint json" }, [
+                  _vm._v(
+                    _vm._s(
+                      JSON.stringify(_vm.Examples.update_note.example, null, 4)
+                    )
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(10),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint json" }, [
+                  _vm._v(
+                    _vm._s(
+                      JSON.stringify(_vm.Examples.update_note.response, null, 4)
+                    )
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card mb-2" }, [
+              _c("div", { staticClass: "h3 card-header" }, [
+                _vm._v("Delete a note")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(11),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint json" }, [
+                  _vm._v(
+                    _vm._s(JSON.stringify(_vm.Examples.delete_note, null, 4))
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("FlashMessage")
+    ],
     1
   )
 }
@@ -84,60 +373,206 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6" }, [
-      _c("div", { staticClass: "card shadow text-center rounded shadow" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("dl", [
-            _c("dt", [
-              _vm._v(
-                "\n                        What is Spring Notes?\n                    "
-              )
-            ]),
-            _vm._v(" "),
-            _c("dd", [
-              _vm._v(
-                "\n                        Spring notes is a sample project of back end work\n                    "
-              )
-            ]),
-            _vm._v(" "),
-            _c("dt", [
-              _vm._v(
-                '\n                        Why "Spring Notes"\n                    '
-              )
-            ]),
-            _vm._v(" "),
-            _c("dd", [
-              _vm._v(
-                '\n                        The name came about because the name of the company is "SharpSpring"\n                    '
-              )
-            ]),
-            _vm._v(" "),
-            _c("dt", [
-              _vm._v(
-                "\n                        What does this application do?\n                    "
-              )
-            ]),
-            _vm._v(" "),
-            _c("dd", [
-              _vm._v(
-                "\n                        This application registers users and allows the creation and editing of simple notes (title, body)\n                    "
-              )
-            ]),
-            _vm._v(" "),
-            _c("dt", [
-              _vm._v(
-                "\n                        Sounds great! How do I start?\n                    "
-              )
-            ]),
-            _vm._v(" "),
-            _c("dd", [
-              _vm._v(
-                "\n                        Click on the log in button in the navigation, and click the register button to register a new user.\n                        Once a new user has been created, you can then access the notes page. From there, you can create, edit,\n                        and delete your notes.\n                    "
-              )
-            ])
-          ])
+    return _c("dl", [
+      _c("dt", [
+        _vm._v(
+          "\n                                Preparing to interact with the API\n                            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("dd", [
+        _vm._v(
+          "\n                                In order to interact with the API, you must have a pre-qualified access key and token. Your\n                                key and token are necessary to interact with the api and are required with every request made.\n                            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("dt", [
+        _vm._v(
+          "\n                                Using your 'key' and 'token'\n                            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("dd", [
+        _vm._v(
+          "\n                                Every request needs to include it's key and token within the request string.\n                            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("dt", [
+        _vm._v(
+          "\n                                Example:\n                            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("dd", [
+        _c("code", [
+          _vm._v(
+            "http://spring_notes/v1/entrypoint?key=your_key&token=your_token"
+          )
         ])
+      ]),
+      _vm._v(" "),
+      _c("dt", [
+        _vm._v(
+          "\n                                Response Body\n                            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("dd", [
+        _vm._v(
+          "\n                                All responses will conform to this schema\n                            "
+        )
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-2" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("h2", { staticClass: "text-center" }, [_vm._v("Usage")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dl", [
+      _c("dt", [_vm._v("Request")]),
+      _vm._v(" "),
+      _c("dd", [_c("code", [_vm._v("GET - /v1/notes HTTP/1.1")])]),
+      _vm._v(" "),
+      _c("dt", [_vm._v("Example")]),
+      _vm._v(" "),
+      _c("dd", [_c("code", [_vm._v("/v1/notes?:tokens")])]),
+      _vm._v(" "),
+      _c("dt", [_vm._v("Response")]),
+      _vm._v(" "),
+      _c("dd", [_vm._v(" Returns an array of all notes")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dl", [
+      _c("dt", [_vm._v("Request")]),
+      _vm._v(" "),
+      _c("dd", [_c("code", [_vm._v('GET - /v1/notes/{"{id}"} HTTP/1.1')])]),
+      _vm._v(" "),
+      _c("dt", [_c("strong", [_vm._v("Example:")])]),
+      _vm._v(" "),
+      _c("dd", [_c("code", [_vm._v("/v1/notes/2?:tokens")])]),
+      _vm._v(" "),
+      _c("dt", [_vm._v("Response")]),
+      _vm._v(" "),
+      _c("dd", [_vm._v("Returns a single note")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dl", [
+      _c("dt", [_vm._v("Request")]),
+      _vm._v(" "),
+      _c("dd", [
+        _c("code", [_vm._v('GET - /v1/notes/{"{id}"}/user_id HTTP/1.1')])
+      ]),
+      _vm._v(" "),
+      _c("dt", [_vm._v("Example")]),
+      _vm._v(" "),
+      _c("dd", [_c("code", [_vm._v("/v1/notes/1/user_id?:tokens")])]),
+      _vm._v(" "),
+      _c("dt", [_vm._v("Response")]),
+      _vm._v(" "),
+      _c("dd", [_vm._v("Returns an array of notes for that user")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dl", [
+      _c("dt", [_vm._v("Request")]),
+      _vm._v(" "),
+      _c("dd", [_c("code", [_vm._v("POST - /v1/notes HTTP/1.1")])]),
+      _vm._v(" "),
+      _c("dt", [_vm._v("Request body schema")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dl", [
+      _c("dt", [_vm._v("Example")]),
+      _vm._v(" "),
+      _c("dd", [_c("code", [_vm._v("/v1/notes?:tokens")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dl", [
+      _c("dt", [_vm._v("Response")]),
+      _vm._v(" "),
+      _c("dd", [_vm._v("Returns the id of the note created")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dl", [
+      _c("dt", [_vm._v("Request")]),
+      _vm._v(" "),
+      _c("dd", [
+        _c("code", [_vm._v('GET - /v1/notes/{"{id}"}/user_id HTTP/1.1')])
+      ]),
+      _vm._v(" "),
+      _c("dt", [_vm._v("Request body schema")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dl", [
+      _c("dt", [_vm._v("Example")]),
+      _vm._v(" "),
+      _c("dd", [_c("code", [_vm._v("/v1/notes/15?:tokens")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dl", [
+      _c("dt", [_vm._v("Response")]),
+      _vm._v(" "),
+      _c("dd", [_vm._v("Returns a boolean value indicating note was updated")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dl", [
+      _c("dt", [_vm._v("Request")]),
+      _vm._v(" "),
+      _c("dd", [_c("code", [_vm._v('DELETE - /v1/notes/{"{id}"} HTTP/1.1')])]),
+      _vm._v(" "),
+      _c("dt", [_vm._v("Example")]),
+      _vm._v(" "),
+      _c("dd", [_c("code", [_vm._v("/v1/notes/15?:tokens")])]),
+      _vm._v(" "),
+      _c("dt", [_vm._v("Response")]),
+      _vm._v(" "),
+      _c("dd", [_vm._v("Returns a boolean value indicating note was deleted")])
     ])
   }
 ]
@@ -259,17 +694,17 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ "./resources/js/components/HomeComponent.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/components/HomeComponent.vue ***!
-  \***************************************************/
+/***/ "./resources/js/components/ApiComponent.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/ApiComponent.vue ***!
+  \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _HomeComponent_vue_vue_type_template_id_782dcf83___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HomeComponent.vue?vue&type=template&id=782dcf83& */ "./resources/js/components/HomeComponent.vue?vue&type=template&id=782dcf83&");
-/* harmony import */ var _HomeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HomeComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/HomeComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ApiComponent_vue_vue_type_template_id_6c5c3a6e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApiComponent.vue?vue&type=template&id=6c5c3a6e& */ "./resources/js/components/ApiComponent.vue?vue&type=template&id=6c5c3a6e&");
+/* harmony import */ var _ApiComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ApiComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ApiComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -279,9 +714,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _HomeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _HomeComponent_vue_vue_type_template_id_782dcf83___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _HomeComponent_vue_vue_type_template_id_782dcf83___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ApiComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ApiComponent_vue_vue_type_template_id_6c5c3a6e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ApiComponent_vue_vue_type_template_id_6c5c3a6e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -291,40 +726,51 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/HomeComponent.vue"
+component.options.__file = "resources/js/components/ApiComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/HomeComponent.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/components/HomeComponent.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
+/***/ "./resources/js/components/ApiComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/ApiComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./HomeComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HomeComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ApiComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ApiComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/HomeComponent.vue?vue&type=template&id=782dcf83&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/components/HomeComponent.vue?vue&type=template&id=782dcf83& ***!
-  \**********************************************************************************/
+/***/ "./resources/js/components/ApiComponent.vue?vue&type=template&id=6c5c3a6e&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/ApiComponent.vue?vue&type=template&id=6c5c3a6e& ***!
+  \*********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeComponent_vue_vue_type_template_id_782dcf83___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./HomeComponent.vue?vue&type=template&id=782dcf83& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HomeComponent.vue?vue&type=template&id=782dcf83&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeComponent_vue_vue_type_template_id_782dcf83___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiComponent_vue_vue_type_template_id_6c5c3a6e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ApiComponent.vue?vue&type=template&id=6c5c3a6e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ApiComponent.vue?vue&type=template&id=6c5c3a6e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiComponent_vue_vue_type_template_id_6c5c3a6e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeComponent_vue_vue_type_template_id_782dcf83___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiComponent_vue_vue_type_template_id_6c5c3a6e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/includes/examples.json":
+/*!*********************************************!*\
+  !*** ./resources/js/includes/examples.json ***!
+  \*********************************************/
+/*! exports provided: response_schema, get_all, by_id, all_user, new_note, update_note, delete_note, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"response_schema\":{\"results\":\"mixed\",\"error\":\"array\"},\"get_all\":{\"results\":[{\"id\":1,\"name\":\"test\",\"title\":\"A Simple Sample\",\"body\":\"Here is a sample note\",\"created_at\":\"2017-11-08 22:50:06\",\"updated_at\":null},{\"id\":2,\"name\":\"test\",\"title\":\"Another Simple Sample\",\"body\":\"Here is another simple sample.\\r\\n\\r\\nThis is a modified note.\",\"created_at\":\"2017-11-08 22:50:54\",\"updated_at\":\"2017-11-08 22:51:12\"}],\"error\":[]},\"by_id\":{\"results\":{\"id\":2,\"name\":\"test\",\"title\":\"Another Simple Sample\",\"body\":\"Here is another simple sample.\\r\\n\\r\\nThis is a modified note.\",\"created_at\":\"2017-11-08 22:50:54\",\"updated_at\":\"2017-11-08 22:51:12\"},\"error\":[]},\"all_user\":{\"results\":[{\"id\":1,\"name\":\"test\",\"title\":\"A Simple Sample\",\"body\":\"Here is a sample note\",\"created_at\":\"2017-11-08 22:50:06\",\"updated_at\":null},{\"id\":2,\"name\":\"test\",\"title\":\"Another Simple Sample\",\"body\":\"Here is another simple sample.\\r\\n\\r\\nThis is a modified note.\",\"created_at\":\"2017-11-08 22:50:54\",\"updated_at\":\"2017-11-08 22:51:12\"}],\"error\":[]},\"new_note\":{\"schema\":{\"user_id\":\"int|required\",\"title\":\"string|required\",\"body\":\"string|required\"},\"example\":{\"user_id\":1,\"title\":\"this is a fun app\",\"body\":\"I enjoy making notes\"},\"response\":{\"results\":15,\"error\":[]}},\"update_note\":{\"schema\":{\"user_id\":\"int|required\",\"title\":\"string|optional\",\"body\":\"string|optional\"},\"example\":{\"id\":15,\"body\":\"I enjoy updating notes\"},\"response\":{\"results\":true,\"error\":[]}},\"delete_note\":{\"results\":true,\"error\":[]}}");
 
 /***/ })
 

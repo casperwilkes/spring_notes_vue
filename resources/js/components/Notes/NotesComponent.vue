@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row mb-3">
+        <div class="row mb-3 justify-content-end">
             <div class="col-md-4">
                 <div class="border-dark shadow nav-fill">
                     <nav class="nav nav-pills">
