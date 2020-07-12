@@ -72,16 +72,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.get("/api/v1/users/".concat(this.query_user, "/notes?page=").concat(this.page)).then(function (res) {
         var _this$notes;
 
-        console.log(res);
-
-        (_this$notes = _this.notes).push.apply(_this$notes, _toConsumableArray(res.data.data));
+        return (_this$notes = _this.notes).push.apply(_this$notes, _toConsumableArray(res.data.data));
       })["catch"](function (err) {
         return console.log(err);
-      }); // axios.get(`/api/v1/notes?page=${this.page}`)
-      //      .then(res => {
-      //          this.notes.push(...res.data.data);
-      //      })
-      //      .catch(err => console.log(err));
+      });
     }
   }
 });

@@ -19,7 +19,7 @@
                 <div class="card-footer" v-if="!datesEqual(note) || authUser(note)">
                     <div class="row">
                         <div class="col-md-8 align-self-center">
-                            <span v-if="!datesEqual(note)">Updated at {{ note.created_at | moment(date_format)}}</span>
+                            <span v-if="!datesEqual(note)">Updated at {{ note.updated_at | moment(date_format)}}</span>
                         </div>
                         <div class="col-md-4 text-right" v-if="authUser(note)">
                             <div class="btn-group">

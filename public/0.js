@@ -148,7 +148,7 @@ var render = function() {
                             "Updated at " +
                               _vm._s(
                                 _vm._f("moment")(
-                                  _vm.note.created_at,
+                                  _vm.note.updated_at,
                                   _vm.date_format
                                 )
                               )
