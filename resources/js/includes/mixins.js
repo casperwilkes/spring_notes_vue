@@ -14,7 +14,7 @@ export default {
          */
         logout: function () {
             this.$store.dispatch('logout')
-                .then(() => this.$router.push('login'));
+                .then(() => this.$router.push({name: 'login'}));
         },
         /**
          * Global method for checking end of page

@@ -69950,7 +69950,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$store.dispatch('logout').then(function () {
-        return _this.$router.push('login');
+        return _this.$router.push({
+          name: 'login'
+        });
       });
     },
 
