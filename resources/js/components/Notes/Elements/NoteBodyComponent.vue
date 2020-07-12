@@ -27,10 +27,10 @@
                                     <font-awesome-icon :icon="['far', 'edit']"/>
                                     Edit
                                 </router-link>
-                                <router-link :to="`/notes/delete/${note.id}`" class="btn btn-danger card-link">
+                                <button type="button" @click="$emit('deleteNote', note.id)" class="btn btn-danger card-link" >
                                     <font-awesome-icon :icon="['fas', 'folder-minus']"/>
                                     Delete
-                                </router-link>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -63,6 +63,9 @@
             },
             authUser: function (note) {
                 return this.user.id === note.author.id
+            },
+            deleteNote: function(note){
+                console.log(note);
             }
         }
     }

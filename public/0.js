@@ -75,6 +75,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     authUser: function authUser(note) {
       return this.user.id === note.author.id;
+    },
+    deleteNote: function deleteNote(note) {
+      console.log(note);
     }
   }
 });
@@ -202,10 +205,15 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c(
-                              "router-link",
+                              "button",
                               {
                                 staticClass: "btn btn-danger card-link",
-                                attrs: { to: "/notes/delete/" + _vm.note.id }
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.$emit("deleteNote", _vm.note.id)
+                                  }
+                                }
                               },
                               [
                                 _c("font-awesome-icon", {

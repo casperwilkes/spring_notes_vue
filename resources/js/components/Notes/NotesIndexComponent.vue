@@ -32,9 +32,7 @@
         methods: {
             getNotes: function () {
                 axios.get(`/api/v1/notes?page=${this.page}`)
-                     .then(res => {
-                         this.notes.push(...res.data.data);
-                     })
+                     .then(res => this.notes.push(...res.data.data))
                      .catch(err => console.log(err));
             }
         }

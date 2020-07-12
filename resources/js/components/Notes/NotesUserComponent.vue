@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NoteBodyComponent :key="nid" :note="note" v-for="(note, nid) in notes"/>
+        <NoteBodyComponent :key="nid" :note="note" @deleteNote="deleteNote" v-for="(note, nid) in notes"/>
     </div>
 </template>
 
@@ -44,6 +44,17 @@
                 axios.get(`/api/v1/users/${this.query_user}/notes?page=${this.page}`)
                      .then(res => this.notes.push(...res.data.data))
                      .catch(err => console.log(err));
+            },
+            deleteNote: function (val) {
+                axios.delete(`/api/v1/notes/${val}`)
+                     .then(() => {
+                         // Remove incoming value from array //
+                         _.remove(this.notes, (n) => {
+                             return n.id === val;
+                         });
+                         // Reinject remaining notes into notes //
+                         this.notes = [...this.notes];
+                     }).catch(err => console.log(err));
             }
         }
     }

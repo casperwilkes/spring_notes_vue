@@ -76,6 +76,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       })["catch"](function (err) {
         return console.log(err);
       });
+    },
+    deleteNote: function deleteNote(val) {
+      var _this2 = this;
+
+      axios["delete"]("/api/v1/notes/".concat(val)).then(function () {
+        // Remove incoming value from array //
+        _.remove(_this2.notes, function (n) {
+          return n.id === val;
+        }); // Reinject remaining notes into notes //
+
+
+        _this2.notes = _toConsumableArray(_this2.notes);
+      })["catch"](function (err) {
+        return console.log(err);
+      });
     }
   }
 });
@@ -100,7 +115,11 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.notes, function(note, nid) {
-      return _c("NoteBodyComponent", { key: nid, attrs: { note: note } })
+      return _c("NoteBodyComponent", {
+        key: nid,
+        attrs: { note: note },
+        on: { deleteNote: _vm.deleteNote }
+      })
     }),
     1
   )

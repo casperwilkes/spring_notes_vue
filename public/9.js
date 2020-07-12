@@ -58,7 +58,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       axios.get("/api/v1/notes?page=".concat(this.page)).then(function (res) {
         var _this$notes;
 
-        (_this$notes = _this.notes).push.apply(_this$notes, _toConsumableArray(res.data.data));
+        return (_this$notes = _this.notes).push.apply(_this$notes, _toConsumableArray(res.data.data));
       })["catch"](function (err) {
         return console.log(err);
       });
