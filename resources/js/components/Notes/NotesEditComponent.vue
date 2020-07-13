@@ -26,7 +26,10 @@
         methods: {
             editHandle: function (note) {
                 axios.put(`/api/v1/notes/${note.id}`, note)
-                     .then(() => this.$router.push({name: 'notes_user'}))
+                     .then(() => {
+                         this.flashMessage.success({message: 'Successfully edited note'});
+                         this.$router.push({name: 'notes_user'})
+                     })
                      .catch(err => this.errors = err.response.data.errors);
             }
         }

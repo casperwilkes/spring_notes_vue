@@ -14,7 +14,16 @@ export default {
          */
         logout: function () {
             this.$store.dispatch('logout')
-                .then(() => this.$router.push({name: 'login'}));
+                .then(() => {
+                    this.flashMessage.success({message: 'Logged out successfully'})
+                })
+                .catch(() => {
+                    this.flashMessage.error({message: 'Could not log out of account at this time'})
+                });
+            // If not on home page, direct to home page //
+            if (this.$route.name !== 'home') {
+                this.$router.push({name: 'home'});
+            }
         },
         /**
          * Global method for checking end of page

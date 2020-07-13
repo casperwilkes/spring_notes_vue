@@ -118,9 +118,11 @@
                     name, email, password, password_confirmation
                 })
                     .then(() => {
-                        this.$router.push('home');
+                        this.flashMessage.success({message: 'You have been successfully registered'});
+                        this.$router.push({name: 'home'});
                     })
                     .catch(err => {
+                        this.flashMessage.error({message: 'Could not complete registration at this time'});
                         console.log(err)
                     });
             }

@@ -97,7 +97,10 @@
                 const {email, password} = this;
 
                 this.$store.dispatch('login', {username: email, password: password})
-                    .then(() => this.$router.push('home'))
+                    .then(() => {
+                        this.flashMessage.success({message: 'You have successfully logged in'});
+                        this.$router.push({name: 'home'})
+                    })
                     .catch(() => console.log('Invalid login attempt'));
             },
         }

@@ -53,8 +53,13 @@
                              return n.id === val;
                          });
                          // Reinject remaining notes into notes //
+                         this.flashMessage.success({message: 'Note successfully removed'})
                          this.notes = [...this.notes];
-                     }).catch(err => console.log(err));
+                     })
+                     .catch(err => {
+                         console.log(err)
+                         this.flashMessage.error({message: 'Unable to remove note at this time'})
+                     });
             }
         }
     }

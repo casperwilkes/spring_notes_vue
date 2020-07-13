@@ -22,6 +22,7 @@
         </div>
 
         <router-view/>
+        <FlashMessage></FlashMessage>
     </div>
 </template>
 

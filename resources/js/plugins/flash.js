@@ -1,3 +1,4 @@
-import Vue from 'vue';
 import FlashMessage from '@smartweb/vue-flash-message';
-Vue.use(FlashMessage);
+import Vue from 'vue';
+
+Vue.use(FlashMessage, {time: 2500, strategy: 'multiple'});
