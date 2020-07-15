@@ -69829,9 +69829,9 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _plugins_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./plugins/router */ "./resources/js/plugins/router.js");
-/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store/store */ "./resources/js/store/store.js");
-/* harmony import */ var _includes_mixins__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./includes/mixins */ "./resources/js/includes/mixins.js");
+/* harmony import */ var _includes_mixins__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./includes/mixins */ "./resources/js/includes/mixins.js");
+/* harmony import */ var _plugins_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugins/router */ "./resources/js/plugins/router.js");
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./resources/js/store/store.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -69849,8 +69849,11 @@ __webpack_require__(/*! ./plugins/moment */ "./resources/js/plugins/moment.js");
 
 __webpack_require__(/*! ./plugins/fontAwesome */ "./resources/js/plugins/fontAwesome.js");
 
+__webpack_require__(/*! ./plugins/axios */ "./resources/js/plugins/axios.js"); // Init Vue //
+
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-window.Vue.mixin(_includes_mixins__WEBPACK_IMPORTED_MODULE_2__["default"]);
+window.Vue.mixin(_includes_mixins__WEBPACK_IMPORTED_MODULE_0__["default"]);
 window.Vue.prototype.log = console.log;
 /**
  * The following block of code may be used to automatically register your
@@ -69871,8 +69874,8 @@ window.Vue.prototype.log = console.log;
 
 var app = new Vue({
   el: '#app',
-  router: _plugins_router__WEBPACK_IMPORTED_MODULE_0__["default"],
-  store: _store_store__WEBPACK_IMPORTED_MODULE_1__["default"]
+  router: _plugins_router__WEBPACK_IMPORTED_MODULE_1__["default"],
+  store: _store_store__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 
 /***/ }),
@@ -69905,7 +69908,7 @@ try {
 
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-axios.defaults.withCredentials = true;
+window.axios.defaults.withCredentials = true;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -69977,6 +69980,47 @@ __webpack_require__.r(__webpack_exports__);
         _this2.page_bottom = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight;
       };
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/plugins/axios.js":
+/*!***************************************!*\
+  !*** ./resources/js/plugins/axios.js ***!
+  \***************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _plugins_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../plugins/router */ "./resources/js/plugins/router.js");
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/store */ "./resources/js/store/store.js");
+
+
+ // Add response interceptor //
+
+window.axios.interceptors.response.use(function (response) {
+  return response;
+}, function (error) {
+  var status = error.response.status; // Check for unauthenticated error //
+
+  if (status === 401) {
+    // Run store logout //
+    _store_store__WEBPACK_IMPORTED_MODULE_2__["default"].dispatch('logout').then(function () {
+      // Add user message //
+      vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.flashMessage.warning({
+        message: 'You have been logged out'
+      }); // Redirect //
+
+      _plugins_router__WEBPACK_IMPORTED_MODULE_1__["default"].push({
+        name: 'home'
+      });
+    })["catch"](function (err) {
+      return console.log(err);
+    });
   }
 });
 

@@ -4,18 +4,19 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import mixins from './includes/mixins';
 import router from "./plugins/router";
 import store from "./store/store";
-import mixins from './includes/mixins';
 
 require('./bootstrap');
 require('./plugins/flash');
 require('./plugins/moment');
 require('./plugins/fontAwesome');
+require('./plugins/axios');
 
+// Init Vue //
 window.Vue = require('vue');
 window.Vue.mixin(mixins);
-
 window.Vue.prototype.log = console.log;
 /**
  * The following block of code may be used to automatically register your
