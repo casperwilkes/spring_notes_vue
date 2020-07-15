@@ -1,6 +1,20 @@
 <template>
     <div>
-        <NoteBodyComponent :key="nid" :note="note" @deleteNote="deleteNote" v-for="(note, nid) in notes"/>
+        <div class="row justify-content-center" v-if="notes.length === 0">
+            <div class="col-10 col-md-8">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <p class="card-text text-center lead">
+                            You currently do not have any notes.
+                            <router-link :to="{name: 'notes_create'}">Create</router-link>
+                            a new one!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <NoteBodyComponent :key="nid" :note="note" @deleteNote="deleteNote" v-else v-for="(note, nid) in notes"/>
     </div>
 </template>
 

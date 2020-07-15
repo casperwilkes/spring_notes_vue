@@ -4,7 +4,7 @@
             <div class="card shadow">
                 <h2 class="card-header text-center">{{focus}} Note</h2>
                 <div class="card-body">
-                    <form @submit.prevent="handle(note)" novalidate>
+                    <form @submit.prevent="handle(note)">
                         <div class="form-group row" id="title_input">
                             <label :class="form_label" for="title">Title</label>
                             <div :class="form_field">

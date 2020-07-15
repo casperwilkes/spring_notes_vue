@@ -48,7 +48,7 @@
                         <router-link :to="{name: 'login'}" class="nav-link">Login</router-link>
                     </li>
                     <li v-if="!this.$store.getters.logged_in" class="nav-item">
-                        <router-link to="{name: 'register'}" class="nav-link">Register</router-link>
+                        <router-link :to="{name: 'register'}" class="nav-link">Register</router-link>
                     </li>
                     <li v-if="this.$store.getters.logged_in" class="nav-item dropdown" >
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"

@@ -35,6 +35,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -122,14 +136,43 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.notes, function(note, nid) {
-      return _c("NoteBodyComponent", {
-        key: nid,
-        attrs: { note: note },
-        on: { deleteNote: _vm.deleteNote }
-      })
-    }),
-    1
+    [
+      _vm.notes.length === 0
+        ? _c("div", { staticClass: "row justify-content-center" }, [
+            _c("div", { staticClass: "col-10 col-md-8" }, [
+              _c("div", { staticClass: "card shadow" }, [
+                _c("div", { staticClass: "card-body" }, [
+                  _c(
+                    "p",
+                    { staticClass: "card-text text-center lead" },
+                    [
+                      _vm._v(
+                        "\n                        You currently do not have any notes.\n                        "
+                      ),
+                      _c(
+                        "router-link",
+                        { attrs: { to: { name: "notes_create" } } },
+                        [_vm._v("Create")]
+                      ),
+                      _vm._v(
+                        "\n                        a new one!\n                    "
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ])
+          ])
+        : _vm._l(_vm.notes, function(note, nid) {
+            return _c("NoteBodyComponent", {
+              key: nid,
+              attrs: { note: note },
+              on: { deleteNote: _vm.deleteNote }
+            })
+          })
+    ],
+    2
   )
 }
 var staticRenderFns = []

@@ -125,7 +125,6 @@ var render = function() {
           _c(
             "form",
             {
-              attrs: { novalidate: "" },
               on: {
                 submit: function($event) {
                   $event.preventDefault()
