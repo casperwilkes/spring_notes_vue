@@ -3,10 +3,12 @@ import VueRouter from 'vue-router';
 import store from '../store/store';
 
 Vue.use(VueRouter);
+
 const Home = () => import('../components/HomeComponent');
 const ApiComponent = () => import('../components/ApiComponent');
 const LoginComponent = () => import('../components/Auth/LoginComponent');
 const RegisterComponent = () => import('../components/Auth/RegisterComponent');
+const VerifyEmailComponent = () => import('../components/Auth/VerifyEmailComponent');
 
 const NotesComponent = () => import('../components/Notes/NotesComponent');
 const NotesIndexComponent = () => import('../components/Notes/NotesIndexComponent');
@@ -67,7 +69,15 @@ const routes = [
         path: '/register',
         name: 'register',
         component: RegisterComponent
-    }
+    },
+    {
+        path: '/email/verify/:id?/:hash?',
+        name: 'email_verify',
+        component: VerifyEmailComponent,
+        meta: {
+            auth: true
+        }
+    },
 ];
 
 

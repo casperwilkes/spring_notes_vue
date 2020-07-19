@@ -70022,6 +70022,8 @@ window.axios.interceptors.response.use(function (response) {
       return console.log(err);
     });
   }
+
+  return Promise.reject(error);
 });
 
 /***/ }),
@@ -70108,7 +70110,7 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 var Home = function Home() {
-  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../components/HomeComponent */ "./resources/js/components/HomeComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../components/HomeComponent */ "./resources/js/components/HomeComponent.vue"));
 };
 
 var ApiComponent = function ApiComponent() {
@@ -70123,24 +70125,28 @@ var RegisterComponent = function RegisterComponent() {
   return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../components/Auth/RegisterComponent */ "./resources/js/components/Auth/RegisterComponent.vue"));
 };
 
+var VerifyEmailComponent = function VerifyEmailComponent() {
+  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../components/Auth/VerifyEmailComponent */ "./resources/js/components/Auth/VerifyEmailComponent.vue"));
+};
+
 var NotesComponent = function NotesComponent() {
-  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesComponent */ "./resources/js/components/Notes/NotesComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesComponent */ "./resources/js/components/Notes/NotesComponent.vue"));
 };
 
 var NotesIndexComponent = function NotesIndexComponent() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesIndexComponent */ "./resources/js/components/Notes/NotesIndexComponent.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesIndexComponent */ "./resources/js/components/Notes/NotesIndexComponent.vue"));
 };
 
 var NotesCreateComponent = function NotesCreateComponent() {
-  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesCreateComponent */ "./resources/js/components/Notes/NotesCreateComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesCreateComponent */ "./resources/js/components/Notes/NotesCreateComponent.vue"));
 };
 
 var NotesEditComponent = function NotesEditComponent() {
-  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesEditComponent */ "./resources/js/components/Notes/NotesEditComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesEditComponent */ "./resources/js/components/Notes/NotesEditComponent.vue"));
 };
 
 var NotesUserComponent = function NotesUserComponent() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesUserComponent */ "./resources/js/components/Notes/NotesUserComponent.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesUserComponent */ "./resources/js/components/Notes/NotesUserComponent.vue"));
 };
 
 var routes = [{
@@ -70186,6 +70192,13 @@ var routes = [{
   path: '/register',
   name: 'register',
   component: RegisterComponent
+}, {
+  path: '/email/verify/:id?/:hash?',
+  name: 'email_verify',
+  component: VerifyEmailComponent,
+  meta: {
+    auth: true
+  }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
@@ -70363,7 +70376,7 @@ var getters = {
   /**
    * Gets current errors object
    * @param state
-   * @return {{}}
+   * @return {array|null}
    */
   errors: function errors(state) {
     return state.errors;
@@ -70385,6 +70398,15 @@ var getters = {
    */
   user: function user(state) {
     return state.user;
+  },
+
+  /**
+   * Checks if current user is set and verified
+   * @param state
+   * @return {boolean}
+   */
+  verified: function verified(state) {
+    return state.user != null && state.user.verified;
   }
 };
 /**

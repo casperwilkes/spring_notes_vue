@@ -133,7 +133,7 @@ const getters = {
     /**
      * Gets current errors object
      * @param state
-     * @return {{}}
+     * @return {array|null}
      */
     errors: state => state.errors,
     /**
@@ -148,6 +148,13 @@ const getters = {
      * @return {{}}
      */
     user: state => state.user,
+
+    /**
+     * Checks if current user is set and verified
+     * @param state
+     * @return {boolean}
+     */
+    verified: state => state.user != null && state.user.verified,
 };
 
 /**
