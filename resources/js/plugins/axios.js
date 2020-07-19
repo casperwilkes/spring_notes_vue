@@ -18,4 +18,6 @@ window.axios.interceptors.response.use(response => response, error => {
              })
              .catch(err => console.log(err));
     }
+
+    return Promise.reject(error);
 });
