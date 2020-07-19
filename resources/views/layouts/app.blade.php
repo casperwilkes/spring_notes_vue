@@ -50,14 +50,16 @@
                     <li v-if="!this.$store.getters.logged_in" class="nav-item">
                         <router-link :to="{name: 'register'}" class="nav-link">Register</router-link>
                     </li>
-                    <li v-if="this.$store.getters.logged_in" class="nav-item dropdown" >
+                    <li v-if="this.$store.getters.logged_in" class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false">
                             @{{ this.$store.getters.user.name }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#" @click.prevent="logout">
+                            <router-link v-if="!this.$store.getters.verified" :to="{name: 'email_verify'}" class="dropdown-item">Verify Account
+                            </router-link>
+                            <a class="dropdown-item" href="/logout" @click.prevent="logout">
                                 Logout
                             </a>
                         </div>

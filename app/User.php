@@ -2,17 +2,19 @@
 
 namespace App;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * Class User
  * @package App
  */
-class User extends Authenticatable {
+class User extends Authenticatable implements MustVerifyEmail {
 
-    use Notifiable;
+    use Notifiable, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -44,6 +46,14 @@ class User extends Authenticatable {
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Whether user email is verified
+     * @return bool
+     */
+    public function getVerifiedAttribute(): bool {
+        return $this->hasVerifiedEmail();
+    }
 
     /**
      * Gets notes associated with user

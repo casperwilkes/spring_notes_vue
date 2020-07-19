@@ -33,7 +33,10 @@ Route::namespace('Api')
                   Route::apiResource('users', 'UsersController');
 
                   Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-                      return $request->user();
+                      $user = $request->user();
+                      $user->verified = $request->user()->verified;
+
+                      return $user;
                   })->name('user.fetch');
               });
      });
