@@ -69947,6 +69947,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     /**
+     * Fetches a fresh csrf token
+     */
+    fetchToken: function fetchToken() {
+      this.$store.dispatch('getCookie');
+    },
+
+    /**
      * Global logout method
      */
     logout: function logout() {
@@ -70016,7 +70023,7 @@ window.axios.interceptors.response.use(function (response) {
       }); // Redirect //
 
       _plugins_router__WEBPACK_IMPORTED_MODULE_1__["default"].push({
-        name: 'home'
+        name: 'login'
       });
     })["catch"](function (err) {
       return console.log(err);
@@ -70129,6 +70136,14 @@ var VerifyEmailComponent = function VerifyEmailComponent() {
   return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../components/Auth/VerifyEmailComponent */ "./resources/js/components/Auth/VerifyEmailComponent.vue"));
 };
 
+var EmailRequestComponent = function EmailRequestComponent() {
+  return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../components/Auth/Password/EmailRequestComponent */ "./resources/js/components/Auth/Password/EmailRequestComponent.vue"));
+};
+
+var PasswordResetComponent = function PasswordResetComponent() {
+  return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ../components/Auth/Password/PasswordResetComponent */ "./resources/js/components/Auth/Password/PasswordResetComponent.vue"));
+};
+
 var NotesComponent = function NotesComponent() {
   return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesComponent */ "./resources/js/components/Notes/NotesComponent.vue"));
 };
@@ -70199,6 +70214,14 @@ var routes = [{
   meta: {
     auth: true
   }
+}, {
+  path: '/password/reset',
+  name: 'password_email',
+  component: EmailRequestComponent
+}, {
+  path: '/password/reset/:token',
+  name: 'password_reset',
+  component: PasswordResetComponent
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',

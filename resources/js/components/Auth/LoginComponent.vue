@@ -62,13 +62,14 @@
                                 <button class="btn btn-primary" type="submit">
                                     Login
                                 </button>
-                                <router-link class="btn btn-link" to="forgot_password">Forgot your password?</router-link>
+                                <router-link :to="{name:'password_email'}" class="btn btn-link">Forgot your password?</router-link>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <FlashMessage></FlashMessage>
     </div>
 </template>
 <script>

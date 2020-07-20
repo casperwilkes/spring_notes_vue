@@ -9,6 +9,8 @@ const ApiComponent = () => import('../components/ApiComponent');
 const LoginComponent = () => import('../components/Auth/LoginComponent');
 const RegisterComponent = () => import('../components/Auth/RegisterComponent');
 const VerifyEmailComponent = () => import('../components/Auth/VerifyEmailComponent');
+const EmailRequestComponent = () => import('../components/Auth/Password/EmailRequestComponent');
+const PasswordResetComponent = () => import('../components/Auth/Password/PasswordResetComponent');
 
 const NotesComponent = () => import('../components/Notes/NotesComponent');
 const NotesIndexComponent = () => import('../components/Notes/NotesIndexComponent');
@@ -53,7 +55,8 @@ const routes = [
                 path: 'edit/:id',
                 name: 'notes_edit',
                 component: NotesEditComponent
-            }, {
+            },
+            {
                 path: 'user/:user?',
                 name: 'notes_user',
                 component: NotesUserComponent
@@ -78,6 +81,16 @@ const routes = [
             auth: true
         }
     },
+    {
+        path: '/password/reset',
+        name: 'password_email',
+        component: EmailRequestComponent
+    },
+    {
+        path: '/password/reset/:token',
+        name: 'password_reset',
+        component: PasswordResetComponent
+    }
 ];
 
 

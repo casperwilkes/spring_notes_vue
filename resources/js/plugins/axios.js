@@ -14,7 +14,7 @@ window.axios.interceptors.response.use(response => response, error => {
                  // Add user message //
                  Vue.prototype.flashMessage.warning({message: 'You have been logged out'});
                  // Redirect //
-                 router.push({name: 'home'});
+                 router.push({name: 'login'});
              })
              .catch(err => console.log(err));
     }

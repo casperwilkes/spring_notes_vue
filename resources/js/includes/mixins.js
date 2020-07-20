@@ -10,6 +10,12 @@ export default {
     },
     methods: {
         /**
+         * Fetches a fresh csrf token
+         */
+        fetchToken: function(){
+            this.$store.dispatch('getCookie');
+        },
+        /**
          * Global logout method
          */
         logout: function () {
