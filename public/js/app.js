@@ -70117,51 +70117,55 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 var Home = function Home() {
-  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../components/HomeComponent */ "./resources/js/components/HomeComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../components/HomeComponent */ "./resources/js/components/HomeComponent.vue"));
 };
 
 var ApiComponent = function ApiComponent() {
-  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../components/ApiComponent */ "./resources/js/components/ApiComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../components/ApiComponent */ "./resources/js/components/ApiComponent.vue"));
 };
 
 var LoginComponent = function LoginComponent() {
-  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../components/Auth/LoginComponent */ "./resources/js/components/Auth/LoginComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../components/Auth/LoginComponent */ "./resources/js/components/Auth/LoginComponent.vue"));
 };
 
 var RegisterComponent = function RegisterComponent() {
-  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../components/Auth/RegisterComponent */ "./resources/js/components/Auth/RegisterComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../components/Auth/RegisterComponent */ "./resources/js/components/Auth/RegisterComponent.vue"));
 };
 
 var VerifyEmailComponent = function VerifyEmailComponent() {
-  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../components/Auth/VerifyEmailComponent */ "./resources/js/components/Auth/VerifyEmailComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../components/Auth/VerifyEmailComponent */ "./resources/js/components/Auth/VerifyEmailComponent.vue"));
 };
 
 var EmailRequestComponent = function EmailRequestComponent() {
-  return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../components/Auth/Password/EmailRequestComponent */ "./resources/js/components/Auth/Password/EmailRequestComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../components/Auth/Password/EmailRequestComponent */ "./resources/js/components/Auth/Password/EmailRequestComponent.vue"));
 };
 
 var PasswordResetComponent = function PasswordResetComponent() {
-  return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ../components/Auth/Password/PasswordResetComponent */ "./resources/js/components/Auth/Password/PasswordResetComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../components/Auth/Password/PasswordResetComponent */ "./resources/js/components/Auth/Password/PasswordResetComponent.vue"));
+};
+
+var PasswordChangeComponent = function PasswordChangeComponent() {
+  return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../components/Auth/Password/PasswordChangeComponent */ "./resources/js/components/Auth/Password/PasswordChangeComponent.vue"));
 };
 
 var NotesComponent = function NotesComponent() {
-  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesComponent */ "./resources/js/components/Notes/NotesComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesComponent */ "./resources/js/components/Notes/NotesComponent.vue"));
 };
 
 var NotesIndexComponent = function NotesIndexComponent() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesIndexComponent */ "./resources/js/components/Notes/NotesIndexComponent.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesIndexComponent */ "./resources/js/components/Notes/NotesIndexComponent.vue"));
 };
 
 var NotesCreateComponent = function NotesCreateComponent() {
-  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesCreateComponent */ "./resources/js/components/Notes/NotesCreateComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesCreateComponent */ "./resources/js/components/Notes/NotesCreateComponent.vue"));
 };
 
 var NotesEditComponent = function NotesEditComponent() {
-  return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesEditComponent */ "./resources/js/components/Notes/NotesEditComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesEditComponent */ "./resources/js/components/Notes/NotesEditComponent.vue"));
 };
 
 var NotesUserComponent = function NotesUserComponent() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesUserComponent */ "./resources/js/components/Notes/NotesUserComponent.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(14)]).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesUserComponent */ "./resources/js/components/Notes/NotesUserComponent.vue"));
 };
 
 var routes = [{
@@ -70222,6 +70226,13 @@ var routes = [{
   path: '/password/reset/:token',
   name: 'password_reset',
   component: PasswordResetComponent
+}, {
+  path: '/password/change',
+  name: 'password_change',
+  component: PasswordChangeComponent,
+  meta: {
+    auth: true
+  }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',

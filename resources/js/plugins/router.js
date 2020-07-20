@@ -11,6 +11,7 @@ const RegisterComponent = () => import('../components/Auth/RegisterComponent');
 const VerifyEmailComponent = () => import('../components/Auth/VerifyEmailComponent');
 const EmailRequestComponent = () => import('../components/Auth/Password/EmailRequestComponent');
 const PasswordResetComponent = () => import('../components/Auth/Password/PasswordResetComponent');
+const PasswordChangeComponent = () => import('../components/Auth/Password/PasswordChangeComponent');
 
 const NotesComponent = () => import('../components/Notes/NotesComponent');
 const NotesIndexComponent = () => import('../components/Notes/NotesIndexComponent');
@@ -90,6 +91,14 @@ const routes = [
         path: '/password/reset/:token',
         name: 'password_reset',
         component: PasswordResetComponent
+    },
+    {
+        path: '/password/change',
+        name: 'password_change',
+        component: PasswordChangeComponent,
+        meta: {
+            auth: true
+        }
     }
 ];
 

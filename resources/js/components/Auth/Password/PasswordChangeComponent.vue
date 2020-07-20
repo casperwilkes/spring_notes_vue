@@ -2,29 +2,26 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Reset Password</div>
+                <div class="card-header">Change Password</div>
 
                 <div class="card-body">
-                    <form @submit.prevent="reset">
-
-                        <input :value="token" name="token" type="hidden">
-
+                    <form @submit.prevent="change">
                         <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right" for="email">E-Mail Address</label>
+                            <label class="col-md-4 col-form-label text-md-right" for="password_current">Current Password</label>
 
                             <div class="col-md-6">
                                 <input
-                                    :class="errors.email !== undefined ? 'is-invalid':''"
-                                    autocomplete="email"
+                                    :class="errors.password_current !== undefined ? 'is-invalid':''"
+                                    autocomplete="password_current"
                                     autofocus
                                     class="form-control"
-                                    id="email"
-                                    name="email"
+                                    id="password_current"
+                                    name="password_current"
                                     required
-                                    type="email"
-                                    v-model="email">
+                                    type="password"
+                                    v-model="password_current">
 
-                                <FormErrorComponent :errors="errors.email"/>
+                                <FormErrorComponent :errors="errors.password_current"/>
                             </div>
                         </div>
 
@@ -80,37 +77,34 @@
 </template>
 
 <script>
-
     const FormErrorComponent = () => import('../../Elements/Form/FormErrorComponent');
 
     export default {
         data() {
             return {
-                email: this.$route.query.email,
-                token: this.$route.params.token,
                 password: '',
                 password_confirmation: '',
-                status: '',
-                errors: {},
+                password_current: '',
+                errors: {}
             }
         },
         methods: {
-            reset: function () {
+            change() {
                 let data = {
-                    email: this.email,
-                    token: this.token,
                     password: this.password,
-                    password_confirmation: this.password_confirmation
+                    password_confirmation: this.password_confirmation,
+                    password_current: this.password_current
                 }
 
-                axios.post('/password/reset', data)
-                     .then(res => {
-                         this.flashMessage.success({message: res.data.message});
-                         this.$router.push({name: 'login'});
+                axios.post('/api/v1/password/change', data)
+                     .then(() => {
+                         this.flashMessage.success({message: 'Password successfully updated'});
+                         this.$router.push({name: 'home'});
                      })
                      .catch(err => this.errors = err.response.data.errors)
             }
-        },
+        }
+        ,
         components: {
             FormErrorComponent
         }
