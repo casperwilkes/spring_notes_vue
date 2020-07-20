@@ -32,11 +32,10 @@ Route::namespace('Api')
 
                   Route::apiResource('users', 'UsersController');
 
-                  Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-                      $user = $request->user();
-                      $user->verified = $request->user()->verified;
+                  Route::get('user', 'UsersController@fetch')
+                       ->name('user.fetch');
 
-                      return $user;
-                  })->name('user.fetch');
+                  Route::post('password/change', 'UsersController@changePassword')
+                       ->name('password.change');
               });
      });

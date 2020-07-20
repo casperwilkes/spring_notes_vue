@@ -8,6 +8,7 @@ use App\User;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class UsersController
@@ -58,7 +59,7 @@ class UsersController extends Controller {
     public function update(UserRequest $request, User $user): JsonResponse {
         $user->update($request->validated());
 
-        return response()->json($user, 200);
+        return response()->json($user, 202);
     }
 
     /**
@@ -84,5 +85,37 @@ class UsersController extends Controller {
         $notes = $user->notes()->paginate(10);
 
         return response()->json($notes, 200);
+    }
+
+    /**
+     * Gets the currently logged in user
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function fetch(Request $request): JsonResponse {
+        $user = $request->user();
+        $user->verified = $request->user()->verified;
+
+        return response()->json($user);
+    }
+
+    /**
+     * Changes currently logged in user's password
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function changePassword(Request $request): JsonResponse {
+        $request->validate(
+            [
+                'password_current' => 'required|password',
+                'password' => 'required|confirmed|min:8',
+            ]
+        );
+
+        $user = $request->user();
+        $user->password = Hash::make($request->password);
+        $user->update();
+
+        return response()->json($user, 202);
     }
 }
