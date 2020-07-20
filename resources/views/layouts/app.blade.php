@@ -57,7 +57,11 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <router-link v-if="!this.$store.getters.verified" :to="{name: 'email_verify'}" class="dropdown-item">Verify Account
+                            <router-link v-if="!this.$store.getters.verified" :to="{name: 'email_verify'}" class="dropdown-item">
+                                Verify Account
+                            </router-link>
+                            <router-link v-if="this.$store.getters.logged_in" :to="{name: 'password_change'}" class="dropdown-item">
+                                Change Password
                             </router-link>
                             <a class="dropdown-item" href="/logout" @click.prevent="logout">
                                 Logout
