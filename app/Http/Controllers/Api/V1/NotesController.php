@@ -7,6 +7,7 @@ use App\Http\Requests\NoteRequest;
 use App\Note;
 use Exception;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -23,12 +24,28 @@ class NotesController extends Controller {
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return JsonResponse
      */
-    public function index(): JsonResponse {
-        $notes = Note::paginate(10);
+    public function index(Request $request): JsonResponse {
+        // Pagination per page //
+        $per_page = 10;
 
-        $notes->each(function($item){
+        // Filter down page by sort order //
+        if ($request->has('filter')) {
+            if ($request->filter === 'oldest') {
+                $order = 'asc';
+            } else {
+                // Default sort //
+                $order = 'desc';
+            }
+
+            $notes = Note::orderBy('created_at', $order)->paginate($per_page);
+        } else {
+            $notes = Note::paginate($per_page);
+        }
+
+        $notes->each(function ($item) {
             $item->body = Str::limit($item->body, 250);
         });
 
