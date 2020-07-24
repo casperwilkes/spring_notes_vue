@@ -22,60 +22,14 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container">
-            <router-link :to="{name: 'home'}" class="navbar-brand">{{ config('app.name', 'Laravel') }}</router-link>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <router-link :to="{name:'api'}" class="nav-link">Api</router-link>
-                    </li>
-                    <li class="nav-item" v-if="this.$store.getters.logged_in">
-                        <router-link :to="{name: 'notes'}" class="nav-link">Notes</router-link>
-                    </li>
-                </ul>
+    <navigation-component></navigation-component>
 
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
-                    <li v-if="!this.$store.getters.logged_in" class="nav-item">
-                        <router-link :to="{name: 'login'}" class="nav-link">Login</router-link>
-                    </li>
-                    <li v-if="!this.$store.getters.logged_in" class="nav-item">
-                        <router-link :to="{name: 'register'}" class="nav-link">Register</router-link>
-                    </li>
-                    <li v-if="this.$store.getters.logged_in" class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">
-                            @{{ this.$store.getters.user.name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <router-link v-if="!this.$store.getters.verified" :to="{name: 'email_verify'}" class="dropdown-item">
-                                Verify Account
-                            </router-link>
-                            <router-link v-if="this.$store.getters.logged_in" :to="{name: 'password_change'}" class="dropdown-item">
-                                Change Password
-                            </router-link>
-                            <a class="dropdown-item" href="/logout" @click.prevent="logout">
-                                Logout
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <main class="py-4">
-        @yield('content')
-    </main>
+    <div class="container">
+        <router-view></router-view>
+    </div>
+    
+    <flash-message></flash-message>
 </div>
 </body>
 </html>

@@ -32,5 +32,5 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
  */
 
 // Master route //
-Route::view('/{path?}', 'home')
+Route::view('/{path?}', 'layouts.app')
      ->where('path', '.*');

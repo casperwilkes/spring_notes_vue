@@ -69,7 +69,6 @@
                 </div>
             </div>
         </div>
-        <FlashMessage></FlashMessage>
     </div>
 </template>
 <script>
