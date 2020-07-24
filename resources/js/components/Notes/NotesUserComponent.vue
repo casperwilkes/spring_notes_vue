@@ -29,6 +29,9 @@
                 notes: []
             };
         },
+        props: {
+            filter: String
+        },
         computed: {
             ...mapGetters([
                 'user',
@@ -44,6 +47,9 @@
                     this.page++;
                     this.getNotes();
                 }
+            },
+            filter: function () {
+                this.initNotes();
             }
         },
         components: {
@@ -55,8 +61,30 @@
         },
         methods: {
             getNotes: function () {
-                axios.get(`/api/v1/users/${this.query_user}/notes?page=${this.page}`)
+                axios.get(`/api/v1/users/${this.query_user}/notes`, {
+                    params: {
+                        page: this.page,
+                        filter: this.filter
+                    }
+                })
                      .then(res => this.notes.push(...res.data.data))
+                     .catch(err => console.log(err));
+            },
+
+            /**
+             * Initializes page when filter has been changed
+             */
+            initNotes: function () {
+                // Set this page to 1 //
+                this.page = 1;
+
+                axios.get(`/api/v1/notes`, {
+                    params: {
+                        page: this.page,
+                        filter: this.filter
+                    }
+                })
+                     .then(res => this.notes = res.data.data)
                      .catch(err => console.log(err));
             },
             deleteNote: function (val) {

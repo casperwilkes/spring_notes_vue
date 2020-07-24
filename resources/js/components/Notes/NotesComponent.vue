@@ -1,6 +1,18 @@
 <template>
     <div>
-        <div class="row mb-3 justify-content-end">
+        <div class="row mb-3 justify-content-between">
+            <div class="col-md-2">
+                <div class="dropdown" v-if="$route.name !== 'notes_create'">
+                    <button aria-expanded="false" aria-haspopup="true" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                            id="dropdownMenuButton" type="button">
+                        Filter
+                    </button>
+                    <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+                        <button :class="{active: filter === 'newest'}" @click="filter = 'newest'" class="dropdown-item" type="button">Newest</button>
+                        <button :class="{active: filter === 'oldest'}" @click="filter = 'oldest'" class="dropdown-item" type="button">Oldest</button>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-4">
                 <div class="border-dark shadow nav-fill">
                     <nav class="nav nav-pills">
@@ -21,10 +33,16 @@
             </div>
         </div>
 
-        <router-view/>
+        <router-view :filter="filter"/>
     </div>
 </template>
 
 <script>
-    export default {}
+    export default {
+        data() {
+            return {
+                filter: "newest"
+            }
+        },
+    }
 </script>

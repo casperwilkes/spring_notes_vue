@@ -120,12 +120,18 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       notes: []
     };
   },
+  props: {
+    filter: String
+  },
   watch: {
     page_bottom: function page_bottom(newVal) {
       if (newVal) {
         this.page++;
         this.getNotes();
       }
+    },
+    filter: function filter() {
+      this.initNotes();
     }
   },
   components: {
@@ -136,13 +142,41 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     this.getNotes();
   },
   methods: {
+    /**
+     * Gets notes based on scroll
+     */
     getNotes: function getNotes() {
       var _this = this;
 
-      axios.get("/api/v1/notes?page=".concat(this.page)).then(function (res) {
+      axios.get("/api/v1/notes", {
+        params: {
+          page: this.page,
+          filter: this.filter
+        }
+      }).then(function (res) {
         var _this$notes;
 
         return (_this$notes = _this.notes).push.apply(_this$notes, _toConsumableArray(res.data.data));
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+
+    /**
+     * Initializes page when filter has been changed
+     */
+    initNotes: function initNotes() {
+      var _this2 = this;
+
+      // Set this page to 1 //
+      this.page = 1;
+      axios.get("/api/v1/notes", {
+        params: {
+          page: this.page,
+          filter: this.filter
+        }
+      }).then(function (res) {
+        return _this2.notes = res.data.data;
       })["catch"](function (err) {
         return console.log(err);
       });

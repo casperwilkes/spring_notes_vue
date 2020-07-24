@@ -36,7 +36,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      filter: "newest"
+    };
+  }
+});
 
 /***/ }),
 
@@ -58,7 +76,67 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("div", { staticClass: "row mb-3 justify-content-end" }, [
+      _c("div", { staticClass: "row mb-3 justify-content-between" }, [
+        _c("div", { staticClass: "col-md-2" }, [
+          _vm.$route.name !== "notes_create"
+            ? _c("div", { staticClass: "dropdown" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-info dropdown-toggle",
+                    attrs: {
+                      "aria-expanded": "false",
+                      "aria-haspopup": "true",
+                      "data-toggle": "dropdown",
+                      id: "dropdownMenuButton",
+                      type: "button"
+                    }
+                  },
+                  [_vm._v("\n                    Filter\n                ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "dropdown-menu",
+                    attrs: { "aria-labelledby": "dropdownMenuButton" }
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "dropdown-item",
+                        class: { active: _vm.filter === "newest" },
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.filter = "newest"
+                          }
+                        }
+                      },
+                      [_vm._v("Newest")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "dropdown-item",
+                        class: { active: _vm.filter === "oldest" },
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.filter = "oldest"
+                          }
+                        }
+                      },
+                      [_vm._v("Oldest")]
+                    )
+                  ]
+                )
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "border-dark shadow nav-fill" }, [
             _c(
@@ -122,7 +200,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("router-view")
+      _c("router-view", { attrs: { filter: _vm.filter } })
     ],
     1
   )

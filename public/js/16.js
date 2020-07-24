@@ -142,6 +142,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       notes: []
     };
   },
+  props: {
+    filter: String
+  },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['user'])), {}, {
     query_user: function query_user() {
       var route_user = this.$route.params.user;
@@ -154,6 +157,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.page++;
         this.getNotes();
       }
+    },
+    filter: function filter() {
+      this.initNotes();
     }
   },
   components: {
@@ -167,7 +173,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getNotes: function getNotes() {
       var _this = this;
 
-      axios.get("/api/v1/users/".concat(this.query_user, "/notes?page=").concat(this.page)).then(function (res) {
+      axios.get("/api/v1/users/".concat(this.query_user, "/notes"), {
+        params: {
+          page: this.page,
+          filter: this.filter
+        }
+      }).then(function (res) {
         var _this$notes;
 
         return (_this$notes = _this.notes).push.apply(_this$notes, _toConsumableArray(res.data.data));
@@ -175,25 +186,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return console.log(err);
       });
     },
-    deleteNote: function deleteNote(val) {
+
+    /**
+     * Initializes page when filter has been changed
+     */
+    initNotes: function initNotes() {
       var _this2 = this;
+
+      // Set this page to 1 //
+      this.page = 1;
+      axios.get("/api/v1/notes", {
+        params: {
+          page: this.page,
+          filter: this.filter
+        }
+      }).then(function (res) {
+        return _this2.notes = res.data.data;
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    deleteNote: function deleteNote(val) {
+      var _this3 = this;
 
       axios["delete"]("/api/v1/notes/".concat(val)).then(function () {
         // Remove incoming value from array //
-        _.remove(_this2.notes, function (n) {
+        _.remove(_this3.notes, function (n) {
           return n.id === val;
         }); // Reinject remaining notes into notes //
 
 
-        _this2.flashMessage.success({
+        _this3.flashMessage.success({
           message: 'Note successfully removed'
         });
 
-        _this2.notes = _toConsumableArray(_this2.notes);
+        _this3.notes = _toConsumableArray(_this3.notes);
       })["catch"](function (err) {
         console.log(err);
 
-        _this2.flashMessage.error({
+        _this3.flashMessage.error({
           message: 'Unable to remove note at this time'
         });
       });
