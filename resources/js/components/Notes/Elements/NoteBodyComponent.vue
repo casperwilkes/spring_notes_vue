@@ -3,8 +3,14 @@
         <div class="col-md-8">
             <div class="card shadow">
                 <p class="card-header h3 text-center text-capitalize">
-                    {{note.title}}
+                    <span v-if="$route.name !== 'notes_view'">
+                        <router-link :to="{name: 'notes_view', params:{id:note.id}}">{{note.title}}</router-link>
+                    </span>
+                    <span v-else>
+                        {{note.title}}
+                    </span>
                 </p>
+
                 <div class="card-body">
                     <p class="card-text">
                         Created by
@@ -27,7 +33,7 @@
                                     <font-awesome-icon :icon="['far', 'edit']"/>
                                     Edit
                                 </router-link>
-                                <button type="button" @click="$emit('deleteNote', note.id)" class="btn btn-danger card-link" >
+                                <button @click="$emit('deleteNote', note.id)" class="btn btn-danger card-link" type="button">
                                     <font-awesome-icon :icon="['fas', 'folder-minus']"/>
                                     Delete
                                 </button>
@@ -64,7 +70,7 @@
             authUser: function (note) {
                 return this.user.id === note.author.id
             },
-            deleteNote: function(note){
+            deleteNote: function (note) {
                 console.log(note);
             }
         }

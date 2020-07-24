@@ -15,6 +15,7 @@ const PasswordChangeComponent = () => import('../components/Auth/Password/Passwo
 
 const NotesComponent = () => import('../components/Notes/NotesComponent');
 const NotesIndexComponent = () => import('../components/Notes/NotesIndexComponent');
+const NotesViewComponent = () => import('../components/Notes/NotesViewComponent');
 const NotesCreateComponent = () => import('../components/Notes/NotesCreateComponent');
 const NotesEditComponent = () => import('../components/Notes/NotesEditComponent');
 const NotesUserComponent = () => import('../components/Notes/NotesUserComponent');
@@ -46,6 +47,11 @@ const routes = [
                 path: '',
                 name: 'notes',
                 component: NotesIndexComponent
+            },
+            {
+                path: ':id',
+                name: 'notes_view',
+                component: NotesViewComponent
             },
             {
                 path: 'create',

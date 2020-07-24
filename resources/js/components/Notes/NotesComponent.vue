@@ -2,7 +2,7 @@
     <div>
         <div class="row mb-3 justify-content-between">
             <div class="col-md-2">
-                <div class="dropdown" v-if="$route.name !== 'notes_create'">
+                <div class="dropdown" v-if="$route.name === 'notes_user' || $route.name === 'notes'">
                     <button aria-expanded="false" aria-haspopup="true" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
                             id="dropdownMenuButton" type="button">
                         Filter
