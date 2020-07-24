@@ -8,6 +8,7 @@ use App\Note;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 /**
  * Class NotesController
@@ -26,6 +27,10 @@ class NotesController extends Controller {
      */
     public function index(): JsonResponse {
         $notes = Note::paginate(10);
+
+        $notes->each(function($item){
+            $item->body = Str::limit($item->body, 250);
+        });
 
         return response()->json($notes, 200);
     }
