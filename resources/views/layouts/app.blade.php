@@ -28,7 +28,7 @@
     <div class="container">
         <router-view></router-view>
     </div>
-    
+
     <flash-message></flash-message>
 </div>
 </body>

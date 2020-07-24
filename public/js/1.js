@@ -167,144 +167,132 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "row justify-content-center mb-2 note-body" },
-    [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "card shadow" }, [
+  return _c("div", { staticClass: "row justify-content-center mb-2" }, [
+    _c("div", { staticClass: "col-md-8" }, [
+      _c("div", { staticClass: "card shadow" }, [
+        _c("p", { staticClass: "card-header h3 text-center text-capitalize" }, [
+          _vm._v(
+            "\n                " + _vm._s(_vm.note.title) + "\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
           _c(
             "p",
-            { staticClass: "card-header h3 text-center text-capitalize" },
+            { staticClass: "card-text" },
             [
-              _vm._v(
-                "\n                " + _vm._s(_vm.note.title) + "\n            "
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c(
-              "p",
-              { staticClass: "card-text" },
-              [
-                _vm._v(
-                  "\n                    Created by\n                    "
-                ),
-                _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: {
-                        name: "notes_user",
-                        params: { user: _vm.note.author.id }
-                      }
+              _vm._v("\n                    Created by\n                    "),
+              _c(
+                "router-link",
+                {
+                  attrs: {
+                    to: {
+                      name: "notes_user",
+                      params: { user: _vm.note.author.id }
                     }
-                  },
-                  [_vm._v(_vm._s(_vm.note.author.name))]
-                ),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(
-                  "\n                    on " +
-                    _vm._s(
-                      _vm._f("moment")(_vm.note.created_at, _vm.date_format)
-                    ) +
-                    "\n                "
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
+                  }
+                },
+                [_vm._v(_vm._s(_vm.note.author.name))]
+              ),
+              _vm._v(" "),
+              _c("br"),
               _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.note.body) +
+                "\n                    on " +
+                  _vm._s(
+                    _vm._f("moment")(_vm.note.created_at, _vm.date_format)
+                  ) +
                   "\n                "
               )
-            ])
-          ]),
+            ],
+            1
+          ),
           _vm._v(" "),
-          !_vm.datesEqual(_vm.note) || _vm.authUser(_vm.note)
-            ? _c("div", { staticClass: "card-footer" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-8 align-self-center" }, [
-                    !_vm.datesEqual(_vm.note)
-                      ? _c("span", [
-                          _vm._v(
-                            "Updated at " +
-                              _vm._s(
-                                _vm._f("moment")(
-                                  _vm.note.updated_at,
-                                  _vm.date_format
-                                )
+          _c("p", { staticClass: "card-text" }, [
+            _c("span", { staticClass: "note-body" }, [
+              _vm._v(_vm._s(_vm.note.body))
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        !_vm.datesEqual(_vm.note) || _vm.authUser(_vm.note)
+          ? _c("div", { staticClass: "card-footer" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-8 align-self-center" }, [
+                  !_vm.datesEqual(_vm.note)
+                    ? _c("span", [
+                        _vm._v(
+                          "Updated at " +
+                            _vm._s(
+                              _vm._f("moment")(
+                                _vm.note.updated_at,
+                                _vm.date_format
                               )
-                          )
-                        ])
-                      : _vm._e()
-                  ]),
-                  _vm._v(" "),
-                  _vm.authUser(_vm.note)
-                    ? _c("div", { staticClass: "col-md-4 text-right" }, [
-                        _c(
-                          "div",
-                          { staticClass: "btn-group" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-primary card-link",
-                                attrs: {
-                                  to: {
-                                    name: "notes_edit",
-                                    params: { id: _vm.note.id }
-                                  }
-                                }
-                              },
-                              [
-                                _c("font-awesome-icon", {
-                                  attrs: { icon: ["far", "edit"] }
-                                }),
-                                _vm._v(
-                                  "\n                                Edit\n                            "
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-danger card-link",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.$emit("deleteNote", _vm.note.id)
-                                  }
-                                }
-                              },
-                              [
-                                _c("font-awesome-icon", {
-                                  attrs: { icon: ["fas", "folder-minus"] }
-                                }),
-                                _vm._v(
-                                  "\n                                Delete\n                            "
-                                )
-                              ],
-                              1
                             )
-                          ],
-                          1
                         )
                       ])
                     : _vm._e()
-                ])
+                ]),
+                _vm._v(" "),
+                _vm.authUser(_vm.note)
+                  ? _c("div", { staticClass: "col-md-4 text-right" }, [
+                      _c(
+                        "div",
+                        { staticClass: "btn-group" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "btn btn-primary card-link",
+                              attrs: {
+                                to: {
+                                  name: "notes_edit",
+                                  params: { id: _vm.note.id }
+                                }
+                              }
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["far", "edit"] }
+                              }),
+                              _vm._v(
+                                "\n                                Edit\n                            "
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger card-link",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.$emit("deleteNote", _vm.note.id)
+                                }
+                              }
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "folder-minus"] }
+                              }),
+                              _vm._v(
+                                "\n                                Delete\n                            "
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ])
+                  : _vm._e()
               ])
-            : _vm._e()
-        ])
+            ])
+          : _vm._e()
       ])
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

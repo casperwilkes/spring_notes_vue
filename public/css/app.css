@@ -10928,3 +10928,7 @@ a.text-dark:focus {
   }
 }
 
+.note-body {
+  white-space: pre-wrap;
+}
+

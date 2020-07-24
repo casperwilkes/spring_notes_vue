@@ -1,5 +1,5 @@
 <template>
-    <div class="row justify-content-center mb-2 note-body">
+    <div class="row justify-content-center mb-2">
         <div class="col-md-8">
             <div class="card shadow">
                 <p class="card-header h3 text-center text-capitalize">
@@ -13,7 +13,7 @@
                         on {{ note.created_at | moment(date_format)}}
                     </p>
                     <p class="card-text">
-                        {{note.body}}
+                        <span class="note-body">{{note.body}}</span>
                     </p>
                 </div>
                 <div class="card-footer" v-if="!datesEqual(note) || authUser(note)">
