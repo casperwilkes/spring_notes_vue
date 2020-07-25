@@ -1,6 +1,7 @@
 <?php
 
 use App\Note;
+use DB\Custom\AddExtra;
 use Illuminate\Database\Seeder;
 
 /**
@@ -14,6 +15,10 @@ class NoteSeeder extends Seeder {
      * @return void
      */
     public function run(): void {
-        factory(Note::class, 200)->create();
+        factory(Note::class, 200)
+            ->create()
+            ->each(function ($note) {
+                AddExtra::addComments($note);
+            });
     }
 }

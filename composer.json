@@ -15,7 +15,8 @@
         "laravel/framework": "^7.0",
         "laravel/sanctum": "^2.4",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.1"
+        "laravel/ui": "^2.1",
+        "laravelista/comments": "^3.6"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -36,7 +37,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "DB\\Custom\\": "database/custom"
         },
         "classmap": [
             "database/seeds",

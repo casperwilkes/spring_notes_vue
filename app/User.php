@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Laravelista\Comments\Commenter;
 
 /**
  * Class User
@@ -14,7 +15,7 @@ use Laravel\Sanctum\HasApiTokens;
  */
 class User extends Authenticatable implements MustVerifyEmail {
 
-    use Notifiable, HasApiTokens;
+    use Notifiable, HasApiTokens, Commenter;
 
     /**
      * The attributes that are mass assignable.

@@ -4,12 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Laravelista\Comments\Commentable;
 
 /**
  * Class Note
  * @package App
  */
 class Note extends Model {
+
+    use Commentable;
 
     protected $with = ['author'];
 
