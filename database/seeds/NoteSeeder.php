@@ -15,7 +15,7 @@ class NoteSeeder extends Seeder {
      * @return void
      */
     public function run(): void {
-        factory(Note::class, 200)
+        factory(Note::class, 50)
             ->create()
             ->each(function ($note) {
                 AddExtra::addComments($note);

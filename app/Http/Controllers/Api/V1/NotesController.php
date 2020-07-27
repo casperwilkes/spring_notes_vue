@@ -45,7 +45,11 @@ class NotesController extends Controller {
             $notes = Note::paginate($per_page);
         }
 
+        // Individual note specific //
         $notes->each(function ($item) {
+            // Add comment count //
+            $item->comment_count = $item->comments()->count();
+            // Trim body length //
             $item->body = Str::limit($item->body, 250);
         });
 
@@ -104,5 +108,34 @@ class NotesController extends Controller {
         $note->delete();
 
         return response()->json(null, 204);
+    }
+
+    /**
+     * Gets comments associated with a note
+     *
+     * @param Note $note
+     * @return JsonResponse
+     */
+    public function comments(Note $note): JsonResponse {
+        /**
+         * Recursively goes through and grabs all comments
+         * @param Model $item
+         */
+        $getRel = function (&$item) use (&$getRel) {
+            $item->children->each(function ($child) use ($getRel) {
+                $getRel($child);
+            });
+        };
+
+        /**
+         * Get paginated results of comments
+         */
+        $comments = $note->comments()
+                         ->paginate(5)
+                         ->each(function ($item) use ($getRel) {
+                             $getRel($item);
+                         });
+
+        return response()->json($comments);
     }
 }
