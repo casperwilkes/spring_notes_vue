@@ -13,6 +13,7 @@ require('./plugins/flash');
 require('./plugins/moment');
 require('./plugins/fontAwesome');
 require('./plugins/axios');
+require('./plugins/fragment');
 
 // Init Vue //
 window.Vue = require('vue');

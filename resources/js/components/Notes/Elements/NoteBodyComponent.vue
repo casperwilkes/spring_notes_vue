@@ -50,11 +50,6 @@
     import {mapGetters} from "vuex";
 
     export default {
-        data() {
-            return {
-                date_format: "MMMM Do YYYY [at] H:mm a",
-            }
-        },
         props: {
             note: Object,
         },

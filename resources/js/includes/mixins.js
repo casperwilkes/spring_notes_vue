@@ -5,7 +5,8 @@ export default {
              * Currently at bottom of page
              *  Note: Infinite scrolling
              */
-            page_bottom: false
+            page_bottom: false,
+            date_format: "MMMM Do YYYY [at] H:mm a"
         }
     },
     methods: {
