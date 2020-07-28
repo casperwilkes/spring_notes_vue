@@ -131,6 +131,8 @@ class NotesController extends Controller {
          * Get paginated results of comments
          */
         $comments = $note->comments()
+                         ->where('child_id', null)
+                         ->orderBy('created_at', 'desc')
                          ->paginate(5)
                          ->each(function ($item) use ($getRel) {
                              $getRel($item);

@@ -127,7 +127,7 @@ class CommentController extends Controller implements CommentControllerInterface
      * @return JsonResponse
      */
     public function reply(Request $request, Comment $comment): JsonResponse {
-        Gate::authorize('reply-to-comment', $comment);
+        Gate::authorize('create-comment', $comment);
 
         Validator::make($request->all(), [
             'message' => 'required|string',
