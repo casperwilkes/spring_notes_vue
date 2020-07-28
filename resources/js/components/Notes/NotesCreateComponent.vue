@@ -5,23 +5,26 @@
 </template>
 
 <script>
-    const NoteFormComponent = () => import('./Elements/NoteFormComponent');
+const NoteFormComponent = () => import('./Elements/NoteFormComponent');
 
-    export default {
-        data() {
-            return {
-                errors: {}
-            }
-        },
-        components: {
-            NoteFormComponent
-        },
-        methods: {
-            createHandle: function (note) {
-                axios.post('/api/v1/notes', note)
-                     .then(() => this.$router.push({name: 'notes_user'}))
-                     .catch(err => this.errors = err.response.data.errors);
-            }
+export default {
+    data() {
+        return {
+            errors: {}
+        }
+    },
+    components: {
+        NoteFormComponent
+    },
+    methods: {
+        createHandle: function (note) {
+            axios.post('/api/v1/notes', note)
+                 .then((res) => {
+                     console.log(res.data.id);
+                     this.$router.push({name: 'notes_view', params: {id: res.data.id}})
+                 })
+                 .catch(err => this.errors = err.response.data.errors);
         }
     }
+}
 </script>
