@@ -70696,7 +70696,7 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 var Home = function Home() {
-  return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../components/HomeComponent */ "./resources/js/components/HomeComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ../components/HomeComponent */ "./resources/js/components/HomeComponent.vue"));
 };
 
 var ApiComponent = function ApiComponent() {
@@ -70728,7 +70728,7 @@ var PasswordChangeComponent = function PasswordChangeComponent() {
 };
 
 var NotesComponent = function NotesComponent() {
-  return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesComponent */ "./resources/js/components/Notes/NotesComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesComponent */ "./resources/js/components/Notes/NotesComponent.vue"));
 };
 
 var NotesIndexComponent = function NotesIndexComponent() {
@@ -70736,15 +70736,15 @@ var NotesIndexComponent = function NotesIndexComponent() {
 };
 
 var NotesViewComponent = function NotesViewComponent() {
-  return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesViewComponent */ "./resources/js/components/Notes/NotesViewComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesViewComponent */ "./resources/js/components/Notes/NotesViewComponent.vue"));
 };
 
 var NotesCreateComponent = function NotesCreateComponent() {
-  return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesCreateComponent */ "./resources/js/components/Notes/NotesCreateComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesCreateComponent */ "./resources/js/components/Notes/NotesCreateComponent.vue"));
 };
 
 var NotesEditComponent = function NotesEditComponent() {
-  return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesEditComponent */ "./resources/js/components/Notes/NotesEditComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ../components/Notes/NotesEditComponent */ "./resources/js/components/Notes/NotesEditComponent.vue"));
 };
 
 var NotesUserComponent = function NotesUserComponent() {

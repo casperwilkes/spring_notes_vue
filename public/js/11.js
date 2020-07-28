@@ -43,11 +43,11 @@ var CommentComponent = function CommentComponent() {
 };
 
 var EditModalComponent = function EditModalComponent() {
-  return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./Elements/EditModalComponent */ "./resources/js/components/Comments/Elements/EditModalComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./Elements/EditModalComponent */ "./resources/js/components/Comments/Elements/EditModalComponent.vue"));
 };
 
 var ReplyModalComponent = function ReplyModalComponent() {
-  return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./Elements/ReplyModalComponent */ "./resources/js/components/Comments/Elements/ReplyModalComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./Elements/ReplyModalComponent */ "./resources/js/components/Comments/Elements/ReplyModalComponent.vue"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -154,7 +154,14 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("EditModalComponent", { attrs: { comment: _vm.comment } }),
+      _c("EditModalComponent", {
+        attrs: { comment: _vm.comment },
+        on: {
+          "update:comment": function($event) {
+            _vm.comment = $event
+          }
+        }
+      }),
       _vm._v(" "),
       _c("ReplyModalComponent", { attrs: { comment: _vm.comment } })
     ],

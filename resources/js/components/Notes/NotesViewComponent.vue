@@ -40,6 +40,7 @@ export default {
          */
         newComment: function (comment) {
             this.comments.unshift(comment);
+            this.$nextTick(() => document.getElementById(`comment-${comment.id}`).scrollIntoView())
         },
         /**
          * Gets the requested note
@@ -66,6 +67,11 @@ export default {
                 }
             })
                  .then(res => {
+                     // Remove existing elements from the incoming data array //
+                     _.remove(res.data, (item) => {
+                         return _.find(this.comments, {'id': item.id}) !== undefined;
+                     })
+
                      this.comments.push(...res.data);
                  })
                  .catch(err => console.log(err));

@@ -2,8 +2,8 @@
     <Fragment>
         <img alt="profile" class="mr-3" src="/img/profile.svg">
         <div class="media-body">
-            <h5 class="mt-0 mb-1">{{comment.commenter.name}} <small class="text-muted">- {{comment.created_at | moment(date_format)}}</small></h5>
-            <div style="white-space: pre-wrap;">{{comment.comment}}</div>
+            <h5 class="mt-0 mb-1">{{ comment.commenter.name }} <small class="text-muted">- {{ comment.created_at | moment(date_format) }}</small></h5>
+            <div style="white-space: pre-wrap;">{{ comment.comment }}</div>
 
             <div>
                 <button :data-target="`#reply-modal-${comment.id}`" class="btn btn-sm btn-link text-uppercase" data-toggle="modal">Reply</button>
@@ -17,7 +17,7 @@
         </div>
 
 
-        <EditModalComponent :comment="comment"/>
+        <EditModalComponent :comment.sync="comment"/>
 
         <ReplyModalComponent :comment="comment"/>
 
@@ -25,26 +25,26 @@
 </template>
 
 <script>
-    import {Fragment} from 'vue-fragment';
+import {Fragment} from 'vue-fragment';
 
-    const CommentComponent = () => import('./CommentComponent')
-    const EditModalComponent = () => import('./Elements/EditModalComponent');
-    const ReplyModalComponent = () => import('./Elements/ReplyModalComponent');
+const CommentComponent = () => import('./CommentComponent')
+const EditModalComponent = () => import('./Elements/EditModalComponent');
+const ReplyModalComponent = () => import('./Elements/ReplyModalComponent');
 
-    export default {
-        props: {
-            comment: Object
+export default {
+    props: {
+        comment: Object
+    },
+    methods: {
+        deleteComment: function () {
+
         },
-        methods: {
-            deleteComment: function () {
-
-            },
-        },
-        components: {
-            ReplyModalComponent,
-            CommentComponent,
-            EditModalComponent,
-            Fragment
-        }
+    },
+    components: {
+        ReplyModalComponent,
+        CommentComponent,
+        EditModalComponent,
+        Fragment
     }
+}
 </script>
