@@ -26,7 +26,8 @@ Route::namespace('Api')
               ->name('v1.')
               ->group(static function () {
                   Route::apiResource('notes', 'NotesController');
-                  Route::get('notes/{note}/comments', 'NotesController@comments')->name('notes.comments');
+                  Route::get('notes/{note}/comments', 'NotesController@comments')
+                       ->name('notes.comments');
 
                   Route::get('users/{user}/notes', 'UsersController@notes')
                        ->name('users.notes');
@@ -38,5 +39,14 @@ Route::namespace('Api')
 
                   Route::post('password/change', 'UsersController@changePassword')
                        ->name('password.change');
+
+                  Route::post('comments', 'CommentController@store')
+                       ->name('comments.store');
+                  Route::delete('comments/{comment}', 'CommentController@destroy')
+                  ->name('comments.destroy');
+                  Route::put('comments/{comment}', 'CommentController@update')
+                       ->name('comments.update');
+                  Route::post('comments/{comment}', 'CommentController@reply')
+                  ->name('comments.reply');
               });
      });

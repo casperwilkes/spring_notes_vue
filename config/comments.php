@@ -25,7 +25,8 @@ return [
      * Change this to your own implementation of the CommentController.
      * You can use the \Laravelista\Comments\CommentControllerInterface.
      */
-    'controller' => '\Laravelista\Comments\CommentController',
+    // 'controller' => '\Laravelista\Comments\CommentController',
+    'controller' => \App\Http\Controllers\Api\V1\CommentController::class,
 
     /**
      * Disable/enable the package routes.
@@ -33,7 +34,8 @@ return [
      * routes and controller logic, set this to false and provide your
      * own routes and controller for comments.
      */
-    'routes' => true,
+    // 'routes' => true,
+    'routes' => false,
 
     /**
      * By default comments posted are marked as approved. If you want
