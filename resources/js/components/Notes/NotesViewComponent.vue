@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div v-show="note.id !== undefined">
         <NoteBodyComponent :note="note" v-if="note.id !== undefined"/>
+        <CommentNewComponent :note="note" @new_comment="newComment"/>
         <CommentComponent :comments="comments"/>
     </div>
 </template>
@@ -9,6 +10,7 @@
 
 const NoteBodyComponent = () => import('./Elements/NoteBodyComponent');
 const CommentComponent = () => import('../Comments/CommentComponent');
+const CommentNewComponent = () => import('../Comments/CommentNewComponent');
 
 export default {
     data() {
@@ -32,6 +34,16 @@ export default {
         this.scroll();
     },
     methods: {
+        /**
+         * Adds a newly created comment to the comments array
+         * @param {Object} comment
+         */
+        newComment: function (comment) {
+            this.comments.unshift(comment);
+        },
+        /**
+         * Gets the requested note
+         */
         getNote: function () {
             axios.get(`/api/v1/notes/${this.$route.params.id}`, {
                 params: {
@@ -44,6 +56,9 @@ export default {
                  })
                  .catch(err => console.log(err));
         },
+        /**
+         * Gets comments associated with a note
+         */
         getComments: function () {
             axios.get(`/api/v1/notes/${this.$route.params.id}/comments`, {
                 params: {
@@ -56,10 +71,10 @@ export default {
                  .catch(err => console.log(err));
         }
     },
-
     components: {
         NoteBodyComponent,
-        CommentComponent
+        CommentComponent,
+        CommentNewComponent
     }
 }
 </script>

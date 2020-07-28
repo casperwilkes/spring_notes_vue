@@ -28,12 +28,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
 var NoteBodyComponent = function NoteBodyComponent() {
   return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./Elements/NoteBodyComponent */ "./resources/js/components/Notes/Elements/NoteBodyComponent.vue"));
 };
 
 var CommentComponent = function CommentComponent() {
   return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ../Comments/CommentComponent */ "./resources/js/components/Comments/CommentComponent.vue"));
+};
+
+var CommentNewComponent = function CommentNewComponent() {
+  return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ../Comments/CommentNewComponent */ "./resources/js/components/Comments/CommentNewComponent.vue"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -58,6 +63,17 @@ var CommentComponent = function CommentComponent() {
     this.scroll();
   },
   methods: {
+    /**
+     * Adds a newly created comment to the comments array
+     * @param {Object} comment
+     */
+    newComment: function newComment(comment) {
+      this.comments.unshift(comment);
+    },
+
+    /**
+     * Gets the requested note
+     */
     getNote: function getNote() {
       var _this = this;
 
@@ -72,6 +88,10 @@ var CommentComponent = function CommentComponent() {
         return console.log(err);
       });
     },
+
+    /**
+     * Gets comments associated with a note
+     */
     getComments: function getComments() {
       var _this2 = this;
 
@@ -90,7 +110,8 @@ var CommentComponent = function CommentComponent() {
   },
   components: {
     NoteBodyComponent: NoteBodyComponent,
-    CommentComponent: CommentComponent
+    CommentComponent: CommentComponent,
+    CommentNewComponent: CommentNewComponent
   }
 });
 
@@ -113,10 +134,25 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.note.id !== undefined,
+          expression: "note.id !== undefined"
+        }
+      ]
+    },
     [
       _vm.note.id !== undefined
         ? _c("NoteBodyComponent", { attrs: { note: _vm.note } })
         : _vm._e(),
+      _vm._v(" "),
+      _c("CommentNewComponent", {
+        attrs: { note: _vm.note },
+        on: { new_comment: _vm.newComment }
+      }),
       _vm._v(" "),
       _c("CommentComponent", { attrs: { comments: _vm.comments } })
     ],
