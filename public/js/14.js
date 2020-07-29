@@ -69,9 +69,8 @@ var FormErrorComponent = function FormErrorComponent() {
 
       axios.put("/api/v1/comments/".concat(this.comment.id), {
         message: this.comment.comment
-      }).then(function (res) {
-        // Hide the modal //
-        $("#comment-modal-".concat(_this.comment.id)).modal('hide');
+      }).then(function () {
+        return $("#comment-modal-".concat(_this.comment.id)).modal('hide');
       })["catch"](function (err) {
         return _this.errors = err.response.data.errors;
       });

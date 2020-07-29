@@ -45,13 +45,16 @@ var NoteFormComponent = function NoteFormComponent() {
     editHandle: function editHandle(note) {
       var _this2 = this;
 
-      axios.put("/api/v1/notes/".concat(note.id), note).then(function () {
+      axios.put("/api/v1/notes/".concat(note.id), note).then(function (res) {
         _this2.flashMessage.success({
           message: 'Successfully edited note'
         });
 
         _this2.$router.push({
-          name: 'notes_user'
+          name: 'notes_view',
+          params: {
+            id: res.data.id
+          }
         });
       })["catch"](function (err) {
         return _this2.errors = err.response.data.errors;

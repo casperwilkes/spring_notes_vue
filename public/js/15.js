@@ -42,12 +42,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var FormErrorComponent = function FormErrorComponent() {
+  return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../../Elements/Form/FormErrorComponent */ "./resources/js/components/Elements/Form/FormErrorComponent.vue"));
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      message: '',
+      errors: {}
+    };
+  },
   props: {
     comment: Object
   },
   methods: {
-    replyComment: function replyComment() {}
+    replyComment: function replyComment() {
+      var _this = this;
+
+      axios.post("/api/v1/comments/".concat(this.comment.id), {
+        message: this.message
+      }).then(function (res) {
+        // New comment should have a children element for replies
+        if (res.data.children === undefined) {
+          res.data.children = [];
+        } // Add new comment ot the children //
+
+
+        _this.comment.children.push(res.data); // Hide the modal //
+
+
+        $("#reply-modal-".concat(_this.comment.id)).modal('hide'); // Reset message to empty //
+
+        _this.message = '';
+      })["catch"](function (err) {
+        console.log(err);
+        _this.errors = err.response.data.errors;
+      });
+    }
+  },
+  components: {
+    FormErrorComponent: FormErrorComponent
   }
 });
 
@@ -91,7 +135,63 @@ var render = function() {
                 }
               }
             },
-            [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", { attrs: { for: "message" } }, [
+                      _vm._v("Enter your message here:")
+                    ]),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model.trim",
+                          value: _vm.message,
+                          expression: "message",
+                          modifiers: { trim: true }
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class:
+                        _vm.errors.message !== undefined ? "is-invalid" : "",
+                      attrs: {
+                        id: "message",
+                        name: "message",
+                        required: "",
+                        rows: "3"
+                      },
+                      domProps: { value: _vm.message },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.message = $event.target.value.trim()
+                        },
+                        blur: function($event) {
+                          return _vm.$forceUpdate()
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("FormErrorComponent", {
+                      attrs: { errors: _vm.errors.message }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
+            ]
           )
         ])
       ])
@@ -120,38 +220,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-body" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "message" } }, [
-          _vm._v("Enter your message here:")
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "form-control",
-          attrs: { id: "message", name: "message", required: "", rows: "3" }
-        }),
-        _vm._v(" "),
-        _c("small", { staticClass: "form-text text-muted" }, [
-          _c(
-            "a",
-            {
-              attrs: {
-                href:
-                  "https://help.github.com/articles/basic-writing-and-formatting-syntax",
-                target: "_blank"
-              }
-            },
-            [
-              _vm._v(
-                "\n                                Markdown\n                            "
-              )
-            ]
-          ),
+    return _c("small", { staticClass: "form-text text-muted" }, [
+      _c(
+        "a",
+        {
+          attrs: {
+            href:
+              "https://help.github.com/articles/basic-writing-and-formatting-syntax",
+            target: "_blank"
+          }
+        },
+        [
           _vm._v(
-            "\n                            cheatsheet.\n                        "
+            "\n                                Markdown\n                            "
           )
-        ])
-      ])
+        ]
+      ),
+      _vm._v(
+        "\n                            cheatsheet.\n                        "
+      )
     ])
   },
   function() {

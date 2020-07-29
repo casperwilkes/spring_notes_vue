@@ -68,10 +68,12 @@ var CommentNewComponent = function CommentNewComponent() {
      * @param {Object} comment
      */
     newComment: function newComment(comment) {
-      this.comments.unshift(comment);
-      this.$nextTick(function () {
-        return document.getElementById("comment-".concat(comment.id)).scrollIntoView();
-      });
+      // New comment should have a children element for replies
+      if (comment.children === undefined) {
+        comment.children = [];
+      }
+
+      this.comments.unshift(comment); // this.$nextTick(() => document.getElementById(`comment-${comment.id}`).scrollIntoView())
     },
 
     /**

@@ -12,7 +12,16 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="message">Enter your message here:</label>
-                            <textarea class="form-control" id="message" name="message" required rows="3"></textarea>
+                            <textarea
+                                :class="errors.message !== undefined? 'is-invalid':''"
+                                class="form-control"
+                                id="message"
+                                name="message"
+                                required
+                                rows="3"
+                                v-model.trim="message"
+                            ></textarea>
+                            <FormErrorComponent :errors="errors.message"/>
                             <small class="form-text text-muted">
                                 <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax" target="_blank">
                                     Markdown
@@ -32,14 +41,46 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            comment: Object
-        },
-        methods: {
-            replyComment: function () {
+const FormErrorComponent = () => import('../../Elements/Form/FormErrorComponent');
 
-            }
+export default {
+    data() {
+        return {
+            message: '',
+            errors: {}
         }
+    },
+    props: {
+        comment: Object
+    },
+    methods: {
+        replyComment: function () {
+            axios.post(`/api/v1/comments/${this.comment.id}`, {
+                message: this.message
+            })
+                 .then(res => {
+                     // New comment should have a children element for replies
+                     if (res.data.children === undefined) {
+                         res.data.children = [];
+                     }
+
+                     // Add new comment ot the children //
+                     this.comment.children.push(res.data);
+
+                     // Hide the modal //
+                     $(`#reply-modal-${this.comment.id}`).modal('hide');
+
+                     // Reset message to empty //
+                     this.message = '';
+                 })
+                 .catch(err => {
+                     console.log(err);
+                     this.errors = err.response.data.errors
+                 })
+        }
+    },
+    components: {
+        FormErrorComponent
     }
+}
 </script>

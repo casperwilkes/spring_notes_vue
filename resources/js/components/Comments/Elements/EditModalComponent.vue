@@ -56,10 +56,7 @@ export default {
             axios.put(`/api/v1/comments/${this.comment.id}`, {
                 message: this.comment.comment
             })
-                 .then(res => {
-                     // Hide the modal //
-                     $(`#comment-modal-${this.comment.id}`).modal('hide');
-                 })
+                 .then(() => $(`#comment-modal-${this.comment.id}`).modal('hide'))
                  .catch(err => this.errors = err.response.data.errors);
         },
     },

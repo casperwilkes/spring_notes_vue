@@ -55,7 +55,13 @@ var ReplyModalComponent = function ReplyModalComponent() {
     comment: Object
   },
   methods: {
-    deleteComment: function deleteComment() {}
+    deleteComment: function deleteComment() {
+      axios["delete"]("/api/v1/comments/".concat(this.comment.id)).then(function (res) {
+        return console.log(res);
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
   },
   components: {
     ReplyModalComponent: ReplyModalComponent,

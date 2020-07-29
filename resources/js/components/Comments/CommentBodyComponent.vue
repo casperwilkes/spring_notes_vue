@@ -37,7 +37,9 @@ export default {
     },
     methods: {
         deleteComment: function () {
-
+            axios.delete(`/api/v1/comments/${this.comment.id}`)
+                 .then(res => console.log(res))
+                 .catch(err => console.log(err));
         },
     },
     components: {

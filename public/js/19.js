@@ -32,9 +32,12 @@ var NoteFormComponent = function NoteFormComponent() {
     createHandle: function createHandle(note) {
       var _this = this;
 
-      axios.post('/api/v1/notes', note).then(function () {
-        return _this.$router.push({
-          name: 'notes_user'
+      axios.post('/api/v1/notes', note).then(function (res) {
+        _this.$router.push({
+          name: 'notes_view',
+          params: {
+            id: res.data.id
+          }
         });
       })["catch"](function (err) {
         return _this.errors = err.response.data.errors;

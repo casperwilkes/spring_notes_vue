@@ -39,8 +39,13 @@ export default {
          * @param {Object} comment
          */
         newComment: function (comment) {
+            // New comment should have a children element for replies
+            if (comment.children === undefined) {
+                comment.children = [];
+            }
+
             this.comments.unshift(comment);
-            this.$nextTick(() => document.getElementById(`comment-${comment.id}`).scrollIntoView())
+            // this.$nextTick(() => document.getElementById(`comment-${comment.id}`).scrollIntoView())
         },
         /**
          * Gets the requested note

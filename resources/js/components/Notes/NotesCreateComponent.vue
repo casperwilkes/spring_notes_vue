@@ -20,7 +20,6 @@ export default {
         createHandle: function (note) {
             axios.post('/api/v1/notes', note)
                  .then((res) => {
-                     console.log(res.data.id);
                      this.$router.push({name: 'notes_view', params: {id: res.data.id}})
                  })
                  .catch(err => this.errors = err.response.data.errors);
