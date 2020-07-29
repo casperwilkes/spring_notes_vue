@@ -1,25 +1,29 @@
 <template>
-    <div class="card my-4 rounded shadow">
-        <div class="card-body">
-            <form @submit.prevent="newComment">
-                <div class="form-group">
-                    <label for="message">Enter your message here:</label>
-                    <textarea :class="errors.message !== undefined? 'is-invalid':''"
-                              class="form-control"
-                              id="message"
-                              name="message"
-                              rows="3"
-                              v-model="message"/>
-                    <FormErrorComponent :errors="errors.message"/>
-                    <small class="form-text text-muted">
-                        <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax" target="_blank">
-                            Markdown
-                        </a>
-                        cheatsheet.
-                    </small>
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-10">
+            <div class="card my-4 rounded shadow">
+                <div class="card-body">
+                    <form @submit.prevent="newComment">
+                        <div class="form-group">
+                            <label for="message">Enter your message here:</label>
+                            <textarea :class="errors.message !== undefined? 'is-invalid':''"
+                                      class="form-control"
+                                      id="message"
+                                      name="message"
+                                      rows="3"
+                                      v-model="message"/>
+                            <FormErrorComponent :errors="errors.message"/>
+                            <small class="form-text text-muted">
+                                <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax" target="_blank">
+                                    Markdown
+                                </a>
+                                cheatsheet.
+                            </small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-success text-uppercase" type="submit">Submit</button>
+                    </form>
                 </div>
-                <button class="btn btn-sm btn-outline-success text-uppercase" type="submit">Submit</button>
-            </form>
+            </div>
         </div>
     </div>
 </template>

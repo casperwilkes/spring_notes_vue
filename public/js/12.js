@@ -24,6 +24,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 var CommentBodyComponent = function CommentBodyComponent() {
@@ -58,34 +62,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "ul",
-    { staticClass: "list-unstyled mt-4" },
-    _vm._l(_vm.comments, function(comment) {
-      return _c("Fragment", { key: comment.id }, [
-        _vm.reply !== undefined && _vm.reply === true
-          ? _c(
-              "div",
-              { staticClass: "media", attrs: { id: "comment-" + comment.id } },
-              [_c("CommentBodyComponent", { attrs: { comment: comment } })],
-              1
-            )
-          : _c(
-              "li",
-              {
-                staticClass: "media",
-                attrs: {
-                  comment: { comment: comment },
-                  id: "comment-" + comment.id
-                }
-              },
-              [_c("CommentBodyComponent", { attrs: { comment: comment } })],
-              1
-            )
-      ])
-    }),
-    1
-  )
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col" }, [
+      _c(
+        "ul",
+        { staticClass: "list-unstyled" },
+        _vm._l(_vm.comments, function(comment) {
+          return _c("Fragment", { key: comment.id }, [
+            _vm.reply !== undefined && _vm.reply === true
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "media",
+                    attrs: { id: "comment-" + comment.id }
+                  },
+                  [_c("CommentBodyComponent", { attrs: { comment: comment } })],
+                  1
+                )
+              : _c(
+                  "li",
+                  {
+                    staticClass: "media",
+                    attrs: {
+                      comment: { comment: comment },
+                      id: "comment-" + comment.id
+                    }
+                  },
+                  [_c("CommentBodyComponent", { attrs: { comment: comment } })],
+                  1
+                )
+          ])
+        }),
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

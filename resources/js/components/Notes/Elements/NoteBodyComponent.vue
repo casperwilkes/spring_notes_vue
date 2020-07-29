@@ -1,6 +1,6 @@
 <template>
-    <div class="row justify-content-center mb-2">
-        <div class="col-md-8">
+    <div class="row justify-content-center my-2">
+        <div class="col-11">
             <div class="card shadow">
                 <p class="card-header h3 text-center text-capitalize">
                     <span v-if="$route.name !== 'notes_view'">
