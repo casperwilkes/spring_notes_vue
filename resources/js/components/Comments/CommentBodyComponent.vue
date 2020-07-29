@@ -7,8 +7,10 @@
 
             <div>
                 <button :data-target="`#reply-modal-${comment.id}`" class="btn btn-sm btn-link text-uppercase" data-toggle="modal">Reply</button>
-                <button :data-target="`#comment-modal-${comment.id}`" class="btn btn-sm btn-link text-uppercase" data-toggle="modal">Edit</button>
-                <button @click="deleteComment" class="btn btn-sm btn-link text-danger text-uppercase">Delete</button>
+                <button :data-target="`#comment-modal-${comment.id}`" class="btn btn-sm btn-link text-uppercase" data-toggle="modal" v-if="owner">
+                    Edit
+                </button>
+                <button @click="deleteComment" class="btn btn-sm btn-link text-danger text-uppercase" v-if="owner">Delete</button>
             </div>
 
             <br/>
@@ -26,6 +28,7 @@
 
 <script>
 import {Fragment} from 'vue-fragment';
+import {mapGetters} from "vuex";
 
 const CommentComponent = () => import('./CommentComponent')
 const EditModalComponent = () => import('./Elements/EditModalComponent');
@@ -34,6 +37,14 @@ const ReplyModalComponent = () => import('./Elements/ReplyModalComponent');
 export default {
     props: {
         comment: Object
+    },
+    computed: {
+        ...mapGetters([
+            'user'
+        ]),
+        owner: function () {
+            return this.user.id === this.comment.commenter.id;
+        }
     },
     methods: {
         deleteComment: function () {

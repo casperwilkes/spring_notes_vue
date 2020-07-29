@@ -10,6 +10,13 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_fragment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-fragment */ "./node_modules/vue-fragment/dist/vue-fragment.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -36,6 +43,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 var CommentComponent = function CommentComponent() {
@@ -54,6 +64,11 @@ var ReplyModalComponent = function ReplyModalComponent() {
   props: {
     comment: Object
   },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['user'])), {}, {
+    owner: function owner() {
+      return this.user.id === this.comment.commenter.id;
+    }
+  }),
   methods: {
     deleteComment: function deleteComment() {
       axios["delete"]("/api/v1/comments/".concat(this.comment.id)).then(function (res) {
@@ -129,26 +144,31 @@ var render = function() {
               [_vm._v("Reply")]
             ),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-sm btn-link text-uppercase",
-                attrs: {
-                  "data-target": "#comment-modal-" + _vm.comment.id,
-                  "data-toggle": "modal"
-                }
-              },
-              [_vm._v("Edit")]
-            ),
+            _vm.owner
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-sm btn-link text-uppercase",
+                    attrs: {
+                      "data-target": "#comment-modal-" + _vm.comment.id,
+                      "data-toggle": "modal"
+                    }
+                  },
+                  [_vm._v("\n                Edit\n            ")]
+                )
+              : _vm._e(),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-sm btn-link text-danger text-uppercase",
-                on: { click: _vm.deleteComment }
-              },
-              [_vm._v("Delete")]
-            )
+            _vm.owner
+              ? _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-sm btn-link text-danger text-uppercase",
+                    on: { click: _vm.deleteComment }
+                  },
+                  [_vm._v("Delete")]
+                )
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("br"),
