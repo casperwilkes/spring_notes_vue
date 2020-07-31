@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Laravel\Scout\Searchable;
 use Laravelista\Comments\Commentable;
 
 /**
@@ -12,7 +13,9 @@ use Laravelista\Comments\Commentable;
  */
 class Note extends Model {
 
-    use Commentable;
+    use Commentable, Searchable;
+
+    public $asYouType = true;
 
     protected $with = ['author'];
 
@@ -24,5 +27,13 @@ class Note extends Model {
      */
     public function author(): BelongsTo {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    /**
+     * TNT/Scout search array
+     * @return array
+     */
+    public function toSearchableArray(): array {
+        return $this->withoutRelations()->toArray();
     }
 }
