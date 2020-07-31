@@ -25,6 +25,9 @@ Route::namespace('Api')
               ->prefix('v1')
               ->name('v1.')
               ->group(static function () {
+                  Route::get('search/{term}', 'SearchController')
+                       ->name('search');
+
                   Route::apiResource('notes', 'NotesController');
                   Route::get('notes/{note}/comments', 'NotesController@comments')
                        ->name('notes.comments');
