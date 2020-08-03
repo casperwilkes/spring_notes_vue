@@ -23,7 +23,7 @@ Setup the project using the following steps:
    - `cp .env.example .env`
 6. Run vagrant
    - `vagrant up`
-     - Upon provisioning:
+   - Upon provisioning:
      - Your database user and password will be setup 
      - Your CA certificate will be copied to project root
 7. SSH into machine
