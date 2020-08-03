@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[23],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Notes/Elements/NoteBodyComponent.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************!*\
@@ -67,7 +67,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    note: Object
+    note: Object,
+    search: {
+      type: Boolean,
+      "default": false
+    }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['user'])),
   methods: {
@@ -94,21 +98,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Notes_Elements_NoteBodyComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Notes/Elements/NoteBodyComponent */ "./resources/js/components/Notes/Elements/NoteBodyComponent.vue");
-
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _Notes_Elements_NoteBodyComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Notes/Elements/NoteBodyComponent */ "./resources/js/components/Notes/Elements/NoteBodyComponent.vue");
+//
 //
 //
 //
@@ -136,77 +127,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       notes: []
     };
   },
-  watch: {
-    term: function term(val) {
-      if (this.term.length > 0) {
-        this.$emit('search', true);
-      } else {
-        this.$emit('search', false);
-      }
-    }
-  },
   methods: {
-    search: function () {
-      var _search = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this = this;
+    search: function search() {
+      var _this = this;
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (!(this.term.length > 0)) {
-                  _context.next = 3;
-                  break;
-                }
-
-                _context.next = 3;
-                return axios.get('/api/v1/search', {
-                  params: {
-                    term: this.term
-                  }
-                }).then(function (res) {
-                  _this.notes = res.data.data;
-
-                  _this.highlight(_this.term, document.getElementsByClassName('card-header'));
-
-                  _this.highlight(_this.term, document.getElementsByClassName('card-text'));
-                })["catch"](function (err) {
-                  return console.log(err);
-                });
-
-              case 3:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function search() {
-        return _search.apply(this, arguments);
-      }
-
-      return search;
-    }(),
-    highlight: function highlight(text, elements) {
-      var _iterator = _createForOfIteratorHelper(elements),
-          _step;
-
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var body = _step.value;
-          var inner = body.innerHTML;
-          body.innerHTML = inner.replace(new RegExp(text, 'ig'), '<span class="highlight">$&</span>');
+      axios.get('/api/v1/search', {
+        params: {
+          term: this.term
         }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
+      }).then(function (res) {
+        _this.notes = res.data.data;
+      })["catch"](function (err) {
+        return console.log(err);
+      });
     }
   },
   components: {
-    NoteBodyComponent: _Notes_Elements_NoteBodyComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
+    NoteBodyComponent: _Notes_Elements_NoteBodyComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -279,7 +216,7 @@ var render = function() {
   return _c("div", { staticClass: "row justify-content-center my-2" }, [
     _c("div", { staticClass: "col-11" }, [
       _c("div", { staticClass: "card shadow" }, [
-        _c("p", { staticClass: "card-header h3 text-center text-capitalize" }, [
+        _c("p", { staticClass: "card-header h3 text-center" }, [
           _vm.$route.name !== "notes_view"
             ? _c(
                 "span",
@@ -287,6 +224,7 @@ var render = function() {
                   _c(
                     "router-link",
                     {
+                      class: { search: _vm.search },
                       attrs: {
                         to: { name: "notes_view", params: { id: _vm.note.id } }
                       }
@@ -337,9 +275,11 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [
-            _c("span", { staticClass: "note-body" }, [
-              _vm._v(_vm._s(_vm.note.body))
-            ])
+            _c(
+              "span",
+              { staticClass: "note-body", class: { search: _vm.search } },
+              [_vm._v(_vm._s(_vm.note.body))]
+            )
           ])
         ]),
         _vm._v(" "),
@@ -454,7 +394,7 @@ var render = function() {
             "form",
             {
               on: {
-                keyup: function($event) {
+                submit: function($event) {
                   $event.preventDefault()
                   return _vm.search($event)
                 }
@@ -476,10 +416,12 @@ var render = function() {
                   attrs: {
                     "aria-label": "Search Term",
                     autocomplete: "off",
+                    autofocus: "",
                     type: "text"
                   },
                   domProps: { value: _vm.term },
                   on: {
+                    keyup: _vm.search,
                     input: function($event) {
                       if ($event.target.composing) {
                         return
@@ -511,7 +453,10 @@ var render = function() {
       ]),
       _vm._v(" "),
       _vm._l(_vm.notes, function(note, nid) {
-        return _c("NoteBodyComponent", { key: nid, attrs: { note: note } })
+        return _c("NoteBodyComponent", {
+          key: nid,
+          attrs: { note: note, search: true }
+        })
       })
     ],
     2

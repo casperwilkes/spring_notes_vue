@@ -16,6 +16,9 @@
                     <li class="nav-item" v-if="logged_in">
                         <router-link :to="{name: 'notes'}" class="nav-link">Notes</router-link>
                     </li>
+                    <li class="nav-item" v-if="logged_in">
+                        <router-link :to="{name: 'search'}" class="nav-link">Search</router-link>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -28,7 +31,8 @@
                         <router-link :to="{name: 'register'}" class="nav-link">Register</router-link>
                     </li>
                     <li class="nav-item dropdown" v-if="logged_in">
-                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown"
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                           id="navbarDropdown"
                            role="button">
                             {{ user.name }}
                         </a>
@@ -52,15 +56,15 @@
 </template>
 
 <script>
-    import {mapGetters} from "vuex";
+import {mapGetters} from "vuex";
 
-    export default {
-        computed: {
-            ...mapGetters([
-                'user',
-                'logged_in',
-                'verified'
-            ])
-        },
-    }
+export default {
+    computed: {
+        ...mapGetters([
+            'user',
+            'logged_in',
+            'verified'
+        ])
+    },
+}
 </script>

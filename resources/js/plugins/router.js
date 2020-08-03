@@ -4,8 +4,11 @@ import store from '../store/store';
 
 Vue.use(VueRouter);
 
+// Base pages //
 const Home = () => import('../components/HomeComponent');
 const ApiComponent = () => import('../components/ApiComponent');
+
+// Auth pages //
 const LoginComponent = () => import('../components/Auth/LoginComponent');
 const RegisterComponent = () => import('../components/Auth/RegisterComponent');
 const VerifyEmailComponent = () => import('../components/Auth/VerifyEmailComponent');
@@ -13,12 +16,15 @@ const EmailRequestComponent = () => import('../components/Auth/Password/EmailReq
 const PasswordResetComponent = () => import('../components/Auth/Password/PasswordResetComponent');
 const PasswordChangeComponent = () => import('../components/Auth/Password/PasswordChangeComponent');
 
+// App pages //
 const NotesComponent = () => import('../components/Notes/NotesComponent');
 const NotesIndexComponent = () => import('../components/Notes/NotesIndexComponent');
 const NotesViewComponent = () => import('../components/Notes/NotesViewComponent');
 const NotesCreateComponent = () => import('../components/Notes/NotesCreateComponent');
 const NotesEditComponent = () => import('../components/Notes/NotesEditComponent');
 const NotesUserComponent = () => import('../components/Notes/NotesUserComponent');
+
+const SearchComponent = () => import('../components/Search/SearchComponent');
 
 const routes = [
     {
@@ -69,6 +75,14 @@ const routes = [
                 component: NotesUserComponent
             }
         ]
+    },
+    {
+        path: '/search',
+        name: 'search',
+        component: SearchComponent,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/login',
