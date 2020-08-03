@@ -1,0 +1,35 @@
+---
+ip: "192.168.10.12"
+memory: 2048
+cpus: 2
+provider: virtualbox
+name: homestead_spring
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: spring_notes_vue
+      to: /home/vagrant/spring_notes
+      type: "nfs"
+
+sites:
+    - map: springnotes.loc
+      to: /home/vagrant/spring_notes/public
+
+databases:
+    - spring_notes
+
+features:
+    - mariadb: false
+    - ohmyzsh: false
+    - webdriver: false
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
