@@ -30,6 +30,14 @@
     </div>
 
     <flash-message></flash-message>
+
+    <footer class="container">
+        <div class="row">
+            <div class="col text-right">
+                <p>&copy; {{date('Y')}} Spring Notes</p>
+            </div>
+        </div>
+    </footer>
 </div>
 </body>
 </html>
