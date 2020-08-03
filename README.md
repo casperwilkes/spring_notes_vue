@@ -14,22 +14,22 @@ For more context, see original project @ https://github.com/casperwilkes/spring_
 Setup the project using the following steps:
 1. Clone repository to a location with read/write privileges
 2. Change into directory 
-  * `cd spring_notes_vue`
+  2. `cd spring_notes_vue`
 3. Initialize homestead
-  * `php vendor/bin/homestead make`
+  3. `php vendor/bin/homestead make`
 4. Copy over `Homestead.yaml.example`
-  * `cp Homestead.yaml.example Homestead.yaml`
+  4. `cp Homestead.yaml.example Homestead.yaml`
 5. Copy over `.env.example`
-  * `cp .env.example .env`
+  5. `cp .env.example .env`
 6. Run vagrant
-  * `vagrant up`
-    * Upon provisioning:
-      * Your database user and password will be setup 
-      * Your CA certificate will be copied to project root
+  6. `vagrant up`
+    6. Upon provisioning:
+      6. Your database user and password will be setup 
+      6. Your CA certificate will be copied to project root
 7. SSH into machine
-  * `ssh vagrant@springnotes.loc`
+  7. `ssh vagrant@springnotes.loc`
 8. Run migrations & seeds
-  * `artisan migrate --seed`
+  8. `artisan migrate --seed`
 
 ## HTTPS ##
 
@@ -37,11 +37,11 @@ If you wish to set up HTTPS, the ca.homstead file has been copied to the home di
 
 1. Open chrome
 2. Navigate to
-  * Settings
-  * Advanced
-  * Manage Certificates
-  * Authorities
-  * Click 'IMPORT'
+  2. Settings
+  2. Advanced
+  2. Manage Certificates
+  2. Authorities
+  2. Click 'IMPORT'
 3. Import ca.homestead file from project directory root 
   
 
