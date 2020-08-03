@@ -42,6 +42,9 @@ If you wish to set up HTTPS, the ca.homstead file has been copied to the home di
    - Manage Certificates
    - Authorities
    - Click 'IMPORT'
-3. Import ca.homestead file from project directory root 
+3. Import ca.homestead file from project directory root
+   - Accept all options
+4. Restart browser
+   - Navigate to `https://springnotes.loc` 
   
 
