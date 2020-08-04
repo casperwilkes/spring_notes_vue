@@ -15,11 +15,14 @@ class TestSeeder extends Seeder {
      */
     public function run(): void {
         // Generate users //
-        factory(User::class, 10)
-            ->create();
-
-        // Generate Notes without comments//
-        factory(Note::class, 10)
-            ->create();
+        factory(User::class, 2)
+            ->create()
+            ->each(function ($user) {
+                $user->notes()
+                     ->saveMany(
+                         factory(Note::class, 2)->make()
+                     );
+                $user->createToken('testing-token');
+            });
     }
 }

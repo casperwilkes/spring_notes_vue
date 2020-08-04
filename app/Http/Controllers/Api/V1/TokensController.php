@@ -23,7 +23,7 @@ class TokensController extends Controller {
         $validated = $request->validated();
         $token = $request->user()->createToken($validated['token_name']);
 
-        return response()->json([$token->plainTextToken]);
+        return response()->json([$token->plainTextToken], 201);
     }
 
     /**
