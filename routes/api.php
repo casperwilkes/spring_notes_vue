@@ -26,7 +26,8 @@ Route::namespace('Api')
               ->name('v1.')
               ->group(static function () {
                   Route::apiResource('notes', 'NotesController');
-                  Route::apiResource('users', 'UsersController');
+                  Route::apiResource('users', 'UsersController')
+                       ->except('store');
 
                   Route::get('search', 'SearchController')
                        ->name('search');

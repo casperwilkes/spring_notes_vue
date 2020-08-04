@@ -38,7 +38,7 @@ class NotesControllerTest extends TestCase {
         // Create a new user to test with //
         $this->user = factory(User::class)->create();
 
-        $this->seed();
+        $this->seed('TestSeeder');
     }
 
     /**
@@ -88,7 +88,7 @@ class NotesControllerTest extends TestCase {
         $response = $this->actingAs($this->user)
                          ->postJson('/api/v1/notes', $data);
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
 
         // Remove author from structure //
         unset($this->note_structure['author']);
@@ -113,7 +113,7 @@ class NotesControllerTest extends TestCase {
         $response = $this->actingAs($this->user)
                          ->putJson("/api/v1/notes/{$note->id}", $data);
 
-        $response->assertStatus(201);
+        $response->assertStatus(202);
 
         // Check correct structure //
         $response->assertJsonStructure($this->note_structure);
