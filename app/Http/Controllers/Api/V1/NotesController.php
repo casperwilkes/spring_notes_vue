@@ -68,7 +68,7 @@ class NotesController extends Controller {
         $note->user_id = Auth::id();
         $note->save();
 
-        return response()->json($note, 200);
+        return response()->json($note, 201);
     }
 
     /**
@@ -93,7 +93,7 @@ class NotesController extends Controller {
 
         $note->update($validated);
 
-        return response()->json($note, 201);
+        return response()->json($note, 202);
 
     }
 
@@ -138,6 +138,6 @@ class NotesController extends Controller {
                              $getRel($item);
                          });
 
-        return response()->json($comments);
+        return response()->json($comments, 200);
     }
 }

@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Hash;
  */
 class UsersController extends Controller {
 
+    public function __construct() {
+        $this->authorizeResource(User::class, 'user');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,18 +29,6 @@ class UsersController extends Controller {
         $users = User::paginate(10);
 
         return response()->json($users, 200);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param UserRequest $request
-     * @return JsonResponse
-     */
-    public function store(UserRequest $request): JsonResponse {
-        $user = User::create($request->validated());
-
-        return response()->json($user, 201);
     }
 
     /**
