@@ -25,17 +25,14 @@ Route::namespace('Api')
               ->prefix('v1')
               ->name('v1.')
               ->group(static function () {
+                  Route::apiResource('notes', 'NotesController');
+                  Route::apiResource('users', 'UsersController');
+
                   Route::get('search', 'SearchController')
                        ->name('search');
 
-                  Route::apiResource('notes', 'NotesController');
                   Route::get('notes/{note}/comments', 'NotesController@comments')
                        ->name('notes.comments');
-
-                  Route::get('users/{user}/notes', 'UsersController@notes')
-                       ->name('users.notes');
-
-                  Route::apiResource('users', 'UsersController');
 
                   Route::get('user', 'UsersController@fetch')
                        ->name('user.fetch');
@@ -43,13 +40,38 @@ Route::namespace('Api')
                   Route::post('password/change', 'UsersController@changePassword')
                        ->name('password.change');
 
-                  Route::post('comments', 'CommentController@store')
-                       ->name('comments.store');
-                  Route::delete('comments/{comment}', 'CommentController@destroy')
-                  ->name('comments.destroy');
-                  Route::put('comments/{comment}', 'CommentController@update')
-                       ->name('comments.update');
-                  Route::post('comments/{comment}', 'CommentController@reply')
-                  ->name('comments.reply');
+                  Route::prefix('users')
+                       ->name('users.')
+                       ->group(function () {
+                           // User Notes //
+                           Route::get('{user}/notes', 'UsersController@notes')
+                                ->name('users.notes');
+
+                           // User Tokens //
+                           Route::middleware('verified')
+                                ->group(function () {
+                                    Route::get('{user}/tokens', 'TokensController@show')
+                                         ->name('tokens.show');
+                                    Route::post('{user}/tokens', 'TokensController@store')
+                                         ->name('tokens.store');
+                                    Route::delete('{user}/tokens/{token_id}', 'TokensController@destroy')
+                                         ->where('token_id', '\d+')
+                                         ->name('tokens.destroy');
+                                });
+                       });
+
+                  Route::prefix('comments')
+                       ->name('comments.')
+                       ->group(function () {
+                           // Comments handling //
+                           Route::post('', 'CommentController@store')
+                                ->name('store');
+                           Route::delete('{comment}', 'CommentController@destroy')
+                                ->name('destroy');
+                           Route::put('{comment}', 'CommentController@update')
+                                ->name('update');
+                           Route::post('{comment}', 'CommentController@reply')
+                                ->name('reply');
+                       });
               });
      });
