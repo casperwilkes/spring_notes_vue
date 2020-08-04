@@ -1,6 +1,6 @@
 <?php
 
-use App\Note;
+use App\{Note, User};
 use Illuminate\Database\Seeder;
 
 /**
@@ -15,10 +15,11 @@ class TestSeeder extends Seeder {
      */
     public function run(): void {
         // Generate users //
-        $this->call(UserSeeder::class);
+        factory(User::class, 10)
+            ->create();
 
         // Generate Notes without comments//
-        factory(Note::class, 50)
+        factory(Note::class, 10)
             ->create();
     }
 }

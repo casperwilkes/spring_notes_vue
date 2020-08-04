@@ -42,6 +42,27 @@ class NotesControllerTest extends TestCase {
     }
 
     /**
+     * Creates a note
+     * @return void
+     */
+    public function testCreateANote(): void {
+        $data = [
+            'title' => $this->faker->sentence,
+            'body' => $this->faker->paragraphs($this->faker->numberBetween(1, 5), true),
+        ];
+
+        $response = $this->actingAs($this->user)
+                         ->postJson('/api/v1/notes', $data);
+
+        $response->assertStatus(201);
+
+        // Remove author from structure //
+        unset($this->note_structure['author']);
+
+        $response->assertJsonStructure($this->note_structure);
+    }
+
+    /**
      * Gets paginated notes
      * @return void
      */
@@ -67,31 +88,12 @@ class NotesControllerTest extends TestCase {
      * @return void
      */
     public function testGetANote(): void {
+        $note = Note::all()->random();
+
         $response = $this->actingAs($this->user)
-                         ->getJson('/api/v1/notes/1');
+                         ->getJson("/api/v1/notes/{$note->id}");
 
         $response->assertStatus(200);
-
-        $response->assertJsonStructure($this->note_structure);
-    }
-
-    /**
-     * Creates a note
-     * @return void
-     */
-    public function testCreateANote(): void {
-        $data = [
-            'title' => $this->faker->sentence,
-            'body' => $this->faker->paragraphs($this->faker->numberBetween(1, 5), true),
-        ];
-
-        $response = $this->actingAs($this->user)
-                         ->postJson('/api/v1/notes', $data);
-
-        $response->assertStatus(201);
-
-        // Remove author from structure //
-        unset($this->note_structure['author']);
 
         $response->assertJsonStructure($this->note_structure);
     }
