@@ -22,15 +22,18 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto" v-if="!logged_in">
                     <!-- Authentication Links -->
-                    <li class="nav-item" v-if="!logged_in">
+                    <li class="nav-item">
                         <router-link :to="{name: 'login'}" class="nav-link">Login</router-link>
                     </li>
-                    <li class="nav-item" v-if="!logged_in">
+                    <li class="nav-item">
                         <router-link :to="{name: 'register'}" class="nav-link">Register</router-link>
                     </li>
-                    <li class="nav-item dropdown" v-if="logged_in">
+                </ul>
+
+                <ul class="navbar-nav ml-auto" v-if="logged_in">
+                    <li class="nav-item dropdown">
                         <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
                            id="navbarDropdown"
                            role="button">
@@ -41,8 +44,11 @@
                             <router-link :to="{name: 'email_verify'}" class="dropdown-item" v-if="!verified">
                                 Verify Account
                             </router-link>
-                            <router-link :to="{name: 'password_change'}" class="dropdown-item" v-if="logged_in">
+                            <router-link :to="{name: 'password_change'}" class="dropdown-item">
                                 Change Password
+                            </router-link>
+                            <router-link :to="{name: 'access_tokens'}" class="dropdown-item">
+                                Access Tokens
                             </router-link>
                             <a @click.prevent="logout" class="dropdown-item" href="/logout">
                                 Logout

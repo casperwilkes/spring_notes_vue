@@ -15,6 +15,7 @@ const VerifyEmailComponent = () => import('../components/Auth/VerifyEmailCompone
 const EmailRequestComponent = () => import('../components/Auth/Password/EmailRequestComponent');
 const PasswordResetComponent = () => import('../components/Auth/Password/PasswordResetComponent');
 const PasswordChangeComponent = () => import('../components/Auth/Password/PasswordChangeComponent');
+const TokensComponent = () => import('../components/Tokens/TokensComponent');
 
 // App pages //
 const NotesComponent = () => import('../components/Notes/NotesComponent');
@@ -75,6 +76,14 @@ const routes = [
                 component: NotesUserComponent
             }
         ]
+    },
+    {
+        path: '/access_tokens',
+        name: 'access_tokens',
+        component: TokensComponent,
+        meta: {
+            auth: true,
+        }
     },
     {
         path: '/search',

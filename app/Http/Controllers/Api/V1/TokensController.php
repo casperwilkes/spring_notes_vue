@@ -23,7 +23,7 @@ class TokensController extends Controller {
         $validated = $request->validated();
         $token = $request->user()->createToken($validated['token_name']);
 
-        return response()->json([$token->plainTextToken], 201);
+        return response()->json(['token' => $token->plainTextToken], 201);
     }
 
     /**
@@ -43,11 +43,11 @@ class TokensController extends Controller {
      * Remove the specified resource from storage.
      *
      * @param User $user
-     * @param int|null $token_id
+     * @param int $token_id
      * @return JsonResponse
      * @throws AuthorizationException
      */
-    public function destroy(User $user, $token_id = null): JsonResponse {
+    public function destroy(User $user, int $token_id): JsonResponse {
         $this->authorize('deleteToken', $user);
         // delete the token //
         $user->tokens()->where('id', $token_id)->delete();
