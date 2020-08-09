@@ -63,7 +63,10 @@ const routes = [
             {
                 path: 'create',
                 name: 'notes_create',
-                component: NotesCreateComponent
+                component: NotesCreateComponent,
+                meta: {
+                    verified: true
+                }
             },
             {
                 path: 'edit/:id',
@@ -83,6 +86,7 @@ const routes = [
         component: TokensComponent,
         meta: {
             auth: true,
+            verified: true,
         }
     },
     {
@@ -144,7 +148,15 @@ router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.auth)) {
         // Check if user currently logged in //
         if (!store.getters.logged_in) {
-            next('login');
+            next({name: 'login'});
+        }
+    }
+
+    // Check if route has verified field //
+    if (to.matched.some(record => record.meta.verified)) {
+        // Check if user currently logged in //
+        if (store.getters.logged_in && !store.getters.verified) {
+            next({name: 'email_verify'});
         }
     }
 
