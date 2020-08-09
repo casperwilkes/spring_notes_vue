@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
+use App\Note;
 use App\User;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 /**
  * Class UsersController
@@ -74,7 +76,30 @@ class UsersController extends Controller {
      * @return JsonResponse
      */
     public function notes(Request $request, User $user): JsonResponse {
-        $notes = $user->notes()->paginate(10);
+        // Pagination per page //
+        $per_page = 10;
+
+        // Filter down page by sort order //
+        if ($request->has('filter')) {
+            if ($request->filter === 'oldest') {
+                $order = 'asc';
+            } else {
+                // Default sort //
+                $order = 'desc';
+            }
+
+            $notes = $user->notes()->orderBy('created_at', $order)->paginate($per_page);
+        } else {
+            $notes = $user->notes()->paginate($per_page);
+        }
+
+        // Individual note specific //
+        $notes->each(function ($item) {
+            // Add comment count //
+            $item->comment_count = $item->comments()->count();
+            // Trim body length //
+            $item->body = Str::limit($item->body, 250);
+        });
 
         return response()->json($notes, 200);
     }
