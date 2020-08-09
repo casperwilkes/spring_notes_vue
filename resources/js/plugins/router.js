@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 
 // Base pages //
 const Home = () => import('../components/HomeComponent');
-const ApiComponent = () => import('../components/ApiComponent');
+const ApiComponent = () => import('../components/Api/ApiComponent');
 
 // Auth pages //
 const LoginComponent = () => import('../components/Auth/LoginComponent');

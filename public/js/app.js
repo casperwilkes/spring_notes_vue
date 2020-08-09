@@ -70739,7 +70739,7 @@ var Home = function Home() {
 };
 
 var ApiComponent = function ApiComponent() {
-  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../components/ApiComponent */ "./resources/js/components/ApiComponent.vue"));
+  return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ../components/Api/ApiComponent */ "./resources/js/components/Api/ApiComponent.vue"));
 }; // Auth pages //
 
 
