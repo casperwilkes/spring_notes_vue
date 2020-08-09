@@ -21,8 +21,8 @@
                                     <dd>
                                         In the Access Tokens page, you will see your previous access keys if available, and the ability to
                                         create a new token. Use the form to generate a token, which will only be visible until the page
-                                        refreshes. At that time, you will need to generate another token.
-                                        <strong>Copy this token, you will need to use it for API requests.</strong>
+                                        refreshes. At that time, you will need to generate another token. <br>
+                                        <i><strong>Note:</strong> Copy this token, you will need to use it for API requests.</i>
                                     </dd>
                                     <dt>
                                         Using your 'key' and 'token'
@@ -43,6 +43,13 @@
                                     <dt>
                                         Variables: Variables are surrounded by brackets `{variable_name}`
                                     </dt>
+                                    <dd>
+                                        <code>base_host</code>: https://springnotes.loc <br>
+                                        <i>
+                                            <strong>Note:</strong>To use these endpoints, you will need to pass a
+                                            <code>X-XSRF-TOKEN</code> as a header
+                                        </i>
+                                    </dd>
                                     <dd>
                                         <code>host</code>: https://springnotes.loc/api/v1
                                     </dd>
@@ -86,6 +93,18 @@
         <div class="row justify-content-center">
             <div class="col">
                 <ExampleComponent :requests="Examples.requests.user"/>
+            </div>
+        </div>
+
+        <div class="row my-3">
+            <div class="col">
+                <h2 class="text-center">Auth</h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col">
+                <ExampleComponent :requests="Examples.requests.auth"/>
             </div>
         </div>
 

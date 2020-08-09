@@ -36,6 +36,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     requests: Object
@@ -63,7 +67,7 @@ var render = function() {
     "fragment",
     _vm._l(_vm.requests, function(e_type, e_type_id) {
       return _c("div", { key: e_type_id, staticClass: "card mb-2 shadow" }, [
-        _c("p", { staticClass: "h3 card-header" }, [
+        _c("p", { staticClass: "h3 card-header text-capitalize" }, [
           _vm._v(_vm._s(e_type.header))
         ]),
         _vm._v(" "),

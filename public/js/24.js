@@ -106,6 +106,25 @@ var _examples_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpa
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 var ExampleComponent = function ExampleComponent() {
@@ -179,6 +198,21 @@ var render = function() {
         ],
         1
       )
+    ]),
+    _vm._v(" "),
+    _vm._m(4),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c(
+        "div",
+        { staticClass: "col" },
+        [
+          _c("ExampleComponent", {
+            attrs: { requests: _vm.Examples.requests.auth }
+          })
+        ],
+        1
+      )
     ])
   ])
 }
@@ -218,11 +252,14 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("dd", [
                     _vm._v(
-                      "\n                                    In the Access Tokens page, you will see your previous access keys if available, and the ability to\n                                    create a new token. Use the form to generate a token, which will only be visible until the page\n                                    refreshes. At that time, you will need to generate another token.\n                                    "
+                      "\n                                    In the Access Tokens page, you will see your previous access keys if available, and the ability to\n                                    create a new token. Use the form to generate a token, which will only be visible until the page\n                                    refreshes. At that time, you will need to generate another token. "
                     ),
-                    _c("strong", [
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("i", [
+                      _c("strong", [_vm._v("Note:")]),
                       _vm._v(
-                        "Copy this token, you will need to use it for API requests."
+                        " Copy this token, you will need to use it for API requests."
                       )
                     ])
                   ]),
@@ -257,6 +294,23 @@ var staticRenderFns = [
                     _vm._v(
                       "\n                                    Variables: Variables are surrounded by brackets `{variable_name}`\n                                "
                     )
+                  ]),
+                  _vm._v(" "),
+                  _c("dd", [
+                    _c("code", [_vm._v("base_host")]),
+                    _vm._v(": https://springnotes.loc "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("i", [
+                      _c("strong", [_vm._v("Note:")]),
+                      _vm._v(
+                        "To use these endpoints, you will need to pass a\n                                        "
+                      ),
+                      _c("code", [_vm._v("X-XSRF-TOKEN")]),
+                      _vm._v(
+                        " as a header\n                                    "
+                      )
+                    ])
                   ]),
                   _vm._v(" "),
                   _c("dd", [
@@ -310,6 +364,16 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row my-3" }, [
       _c("div", { staticClass: "col" }, [
         _c("h2", { staticClass: "text-center" }, [_vm._v("User")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row my-3" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("h2", { staticClass: "text-center" }, [_vm._v("Auth")])
       ])
     ])
   }
@@ -396,7 +460,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! exports provided: error_body, requests, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"error_body\":{\"message\":\"The given data was invalid.\",\"errors\":{\"example_field_1\":[\"error\",\"messages\"],\"example_field_2\":[\"pertaining\",\"to field\"]}},\"requests\":{\"notes\":{\"get_all\":{\"header\":\"Get all notes\",\"type\":\"GET\",\"code\":200,\"url\":\"{host}/notes\",\"params\":{\"page\":{\"type\":\"int|optional\",\"description\":\"Page to fetch\"},\"filter\":{\"type\":\"string|optional\",\"description\":\"Sort order (<code>'newest'</code>, <code>'oldest'</code>)\"}},\"description\":\"Gets all notes in the system\",\"response_text\":\"Returns an array of all notes\",\"response\":{\"current_page\":1,\"data\":[{\"id\":1,\"user_id\":17,\"title\":\"Odio distinctio doloribus omnis qui voluptates molestiae sed porro.\",\"body\":\"Reprehenderit nisi ut quia laboriosam. Ut non eius et quasi. Voluptatem error quia aperiam aut facilis consequatur ex. Eos vitae placeat ipsa ipsa expedita quibusdam. Ut facere iusto non reiciendis blanditiis expedita rerum.\\n\\nQui repellat amet laboru...\",\"created_at\":\"2019-10-01T13:50:55.000000Z\",\"updated_at\":\"2019-10-01T13:50:55.000000Z\",\"comment_count\":39,\"author\":{\"id\":17,\"name\":\"Brooks Lehner Sr.\",\"email\":\"pouros.liza@example.net\",\"created_at\":\"2019-12-12T07:22:35.000000Z\",\"updated_at\":\"2019-12-12T07:22:35.000000Z\"}},\"...additional paginated results\"],\"first_page_url\":\"https://springnotes.loc/api/v1/notes?page=1\",\"from\":1,\"last_page\":6,\"last_page_url\":\"https://springnotes.loc/api/v1/notes?page=6\",\"next_page_url\":\"https://springnotes.loc/api/v1/notes?page=2\",\"path\":\"https://springnotes.loc/api/v1/notes\",\"per_page\":10,\"prev_page_url\":null,\"to\":10,\"total\":51}},\"by_id\":{\"header\":\"Get a single note\",\"type\":\"GET\",\"code\":200,\"url\":\"{host}/notes/{note}\",\"params\":{},\"response_text\":\"Returns a single note\",\"response\":{\"id\":3,\"user_id\":16,\"title\":\"Voluptas neque cum excepturi et.\",\"body\":\"Et nihil accusantium et. Qui quidem dolor expedita delectus suscipit ipsum. Vero culpa quisquam quia corrupti. Rerum quas dolore est qui ad vel ea.\",\"created_at\":\"2020-08-03T18:36:29.000000Z\",\"updated_at\":\"2020-08-03T18:36:29.000000Z\",\"author\":{\"id\":16,\"name\":\"Michale Littel II\",\"email\":\"ali96@example.com\",\"created_at\":\"2019-12-24T04:00:46.000000Z\",\"updated_at\":\"2019-12-24T04:00:46.000000Z\"}}},\"new_note\":{\"header\":\"Create a new note\",\"type\":\"POST\",\"code\":201,\"url\":\"{host}/notes\",\"params\":{\"title\":{\"type\":\"string|required\",\"description\":\"Title of the note\"},\"body\":{\"type\":\"string|required\",\"description\":\"Text body of the note\"}},\"response_text\":\"Returns the model of the note created\",\"response\":{\"title\":\"This is a test title\",\"body\":\"This is a test body\",\"user_id\":2,\"updated_at\":\"2020-08-09T17:55:18.000000Z\",\"created_at\":\"2020-08-09T17:55:18.000000Z\",\"id\":52}},\"update_note\":{\"header\":\"Update a note\",\"type\":\"PUT\",\"code\":202,\"url\":\"{host}/notes/{note}\",\"params\":{\"title\":{\"type\":\"string|required\",\"description\":\"Title of the note\"},\"body\":{\"type\":\"string|required\",\"description\":\"Text body of the note\"}},\"response_text\":\"Returns the model of the newly updated note\",\"response\":{\"id\":41,\"user_id\":2,\"title\":\"Quasi\",\"body\":\"Placeat quidem asperiores magni quasi est aut quis. Tenetur quia sunt atque dolorem tenetur et quidem. Consequuntur quod minima quas iste similique qui perferendis. Nobis qui et voluptates ut.\\n\\nAd alias alias iure modi provident minima rem. Accusamus ad eius saepe culpa molestiae illum.\\n\\nQuia vitae consequatur architecto et velit magni itaque. Odit magnam tempore repudiandae error aut incidunt et. Ad est assumenda aliquid officiis.\\n\\nVoluptatem nesciunt numquam in veniam. Sed aut aspernatur\",\"created_at\":\"2020-04-24T09:17:42.000000Z\",\"updated_at\":\"2020-08-09T18:14:41.000000Z\",\"author\":{\"id\":2,\"name\":\"Test\",\"email\":\"test@springnotes.com\",\"created_at\":\"2020-08-03T18:36:29.000000Z\",\"updated_at\":\"2020-08-03T18:36:29.000000Z\"}}},\"delete_note\":{\"header\":\"Delete a note\",\"type\":\"DELETE\",\"code\":204,\"url\":\"{host}/notes/{note}\",\"params\":{},\"description\":\"\",\"response_text\":\"Returns an empty response\",\"response\":null}},\"user\":{\"get_all_notes\":{\"header\":\"Get all notes for user\",\"type\":\"GET\",\"code\":200,\"url\":\"{host}/users/{user}/notes\",\"params\":{\"page\":{\"type\":\"int|optional\",\"description\":\"Page to fetch\"}},\"description\":\"Gets all notes for the user\",\"response_text\":\"Returns an array of all notes\",\"response\":{\"current_page\":1,\"data\":[{\"id\":6,\"user_id\":2,\"title\":\"Libero est sed totam repudiandae.\",\"body\":\"Voluptas ut voluptates architecto et minima. Perspiciatis debitis sequi architecto est. Laboriosam provident sint labore adipisci animi est. Distinctio et quis quaerat quas voluptatem a enim.\\n\\nDeserunt et dolor et voluptatem. Et quibusdam error optio repudiandae nam. Consequatur aliquid consequatur libero autem non sapiente earum.\\n\\nFugiat hic est assumenda in necessitatibus. Sapiente sit quaerat dolore quia voluptatem velit quia quidem. Eum libero rerum omnis laborum.\\n\\nUnde inventore aspernatur dolorem optio est beatae. Ut id et natus quibusdam. Aliquam non aliquam dignissimos consequatur.\",\"created_at\":\"2019-12-03T21:32:47.000000Z\",\"updated_at\":\"2020-02-24T04:18:22.000000Z\",\"author\":{\"id\":2,\"name\":\"Test\",\"email\":\"test@springnotes.com\",\"created_at\":\"2020-08-03T18:36:29.000000Z\",\"updated_at\":\"2020-08-03T18:36:29.000000Z\"}},\"...additional entries\"],\"first_page_url\":\"https://springnotes.loc/api/v1/users/2/notes?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"https://springnotes.loc/api/v1/users/2/notes?page=1\",\"next_page_url\":null,\"path\":\"https://springnotes.loc/api/v1/users/2/notes\",\"per_page\":10,\"prev_page_url\":null,\"to\":7,\"total\":7}},\"get_current_user\":{\"header\":\"Get current user\",\"type\":\"GET\",\"code\":200,\"url\":\"{host}/user\",\"params\":{},\"description\":\"Gets the currently authenticated user\",\"response_text\":\"Returns the current user model\",\"response\":{\"id\":2,\"name\":\"Test\",\"email\":\"test@springnotes.com\",\"created_at\":\"2020-08-03T18:36:29.000000Z\",\"updated_at\":\"2020-08-03T18:36:29.000000Z\",\"verified\":true}}}}}");
+module.exports = JSON.parse("{\"error_body\":{\"message\":\"The given data was invalid.\",\"errors\":{\"example_field_1\":[\"error\",\"messages\"],\"example_field_2\":[\"pertaining\",\"to field\"]}},\"requests\":{\"notes\":{\"get_all\":{\"header\":\"Get all notes\",\"type\":\"GET\",\"code\":200,\"url\":\"{host}/notes\",\"params\":{\"page\":{\"type\":\"int|optional\",\"description\":\"Page to fetch\"},\"filter\":{\"type\":\"string|optional\",\"description\":\"Sort order (<code>'newest'</code>, <code>'oldest'</code>)\"}},\"description\":\"Gets all notes in the system\",\"response_text\":\"Returns an array of all notes\",\"response\":{\"current_page\":1,\"data\":[{\"id\":1,\"user_id\":17,\"title\":\"Odio distinctio doloribus omnis qui voluptates molestiae sed porro.\",\"body\":\"Reprehenderit nisi ut quia laboriosam. Ut non eius et quasi. Voluptatem error quia aperiam aut facilis consequatur ex. Eos vitae placeat ipsa ipsa expedita quibusdam. Ut facere iusto non reiciendis blanditiis expedita rerum.\\n\\nQui repellat amet laboru...\",\"created_at\":\"2019-10-01T13:50:55.000000Z\",\"updated_at\":\"2019-10-01T13:50:55.000000Z\",\"comment_count\":39,\"author\":{\"id\":17,\"name\":\"Brooks Lehner Sr.\",\"email\":\"pouros.liza@example.net\",\"created_at\":\"2019-12-12T07:22:35.000000Z\",\"updated_at\":\"2019-12-12T07:22:35.000000Z\"}},\"...additional entries\"],\"first_page_url\":\"https://springnotes.loc/api/v1/notes?page=1\",\"from\":1,\"last_page\":6,\"last_page_url\":\"https://springnotes.loc/api/v1/notes?page=6\",\"next_page_url\":\"https://springnotes.loc/api/v1/notes?page=2\",\"path\":\"https://springnotes.loc/api/v1/notes\",\"per_page\":10,\"prev_page_url\":null,\"to\":10,\"total\":51}},\"get_user_notes\":{\"header\":\"Get all notes for user\",\"type\":\"GET\",\"code\":200,\"url\":\"{host}/users/{user}/notes\",\"params\":{\"page\":{\"type\":\"int|optional\",\"description\":\"Page to fetch\"},\"filter\":{\"type\":\"string|optional\",\"description\":\"Sort order (<code>'newest'</code>, <code>'oldest'</code>)\"}},\"description\":\"Gets all notes for the user\",\"response_text\":\"Returns an array of all notes\",\"response\":{\"current_page\":1,\"data\":[{\"id\":6,\"user_id\":2,\"title\":\"Libero est sed totam repudiandae.\",\"body\":\"Voluptas ut voluptates architecto et minima. Perspiciatis debitis sequi architecto est. Laboriosam provident sint labore adipisci animi est. Distinctio et quis quaerat quas voluptatem a enim.\\n\\nDeserunt et dolor et voluptatem. Et quibusdam error optio...\",\"created_at\":\"2019-12-03T21:32:47.000000Z\",\"updated_at\":\"2020-02-24T04:18:22.000000Z\",\"comment_count\":110,\"author\":{\"id\":2,\"name\":\"Test\",\"email\":\"test@springnotes.com\",\"created_at\":\"2020-08-03T18:36:29.000000Z\",\"updated_at\":\"2020-08-03T18:36:29.000000Z\"}},\"...additional entries\"],\"first_page_url\":\"https://springnotes.loc/api/v1/users/2/notes?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"https://springnotes.loc/api/v1/users/2/notes?page=1\",\"next_page_url\":null,\"path\":\"https://springnotes.loc/api/v1/users/2/notes\",\"per_page\":10,\"prev_page_url\":null,\"to\":7,\"total\":7}},\"by_id\":{\"header\":\"Get a single note\",\"type\":\"GET\",\"code\":200,\"url\":\"{host}/notes/{note}\",\"params\":{},\"response_text\":\"Returns a single note\",\"response\":{\"id\":3,\"user_id\":16,\"title\":\"Voluptas neque cum excepturi et.\",\"body\":\"Et nihil accusantium et. Qui quidem dolor expedita delectus suscipit ipsum. Vero culpa quisquam quia corrupti. Rerum quas dolore est qui ad vel ea.\",\"created_at\":\"2020-08-03T18:36:29.000000Z\",\"updated_at\":\"2020-08-03T18:36:29.000000Z\",\"author\":{\"id\":16,\"name\":\"Michale Littel II\",\"email\":\"ali96@example.com\",\"created_at\":\"2019-12-24T04:00:46.000000Z\",\"updated_at\":\"2019-12-24T04:00:46.000000Z\"}}},\"new_note\":{\"header\":\"Create a new note\",\"type\":\"POST\",\"code\":201,\"url\":\"{host}/notes\",\"params\":{\"title\":{\"type\":\"string|required\",\"description\":\"Title of the note\"},\"body\":{\"type\":\"string|required\",\"description\":\"Text body of the note\"}},\"response_text\":\"Returns the model of the note created\",\"response\":{\"title\":\"This is a test title\",\"body\":\"This is a test body\",\"user_id\":2,\"updated_at\":\"2020-08-09T17:55:18.000000Z\",\"created_at\":\"2020-08-09T17:55:18.000000Z\",\"id\":52}},\"update_note\":{\"header\":\"Update a note\",\"type\":\"PUT\",\"code\":202,\"url\":\"{host}/notes/{note}\",\"params\":{\"title\":{\"type\":\"string|required\",\"description\":\"Title of the note\"},\"body\":{\"type\":\"string|required\",\"description\":\"Text body of the note\"}},\"response_text\":\"Returns the model of the newly updated note\",\"response\":{\"id\":41,\"user_id\":2,\"title\":\"Quasi\",\"body\":\"Placeat quidem asperiores magni quasi est aut quis. Tenetur quia sunt atque dolorem tenetur et quidem. Consequuntur quod minima quas iste similique qui perferendis. Nobis qui et voluptates ut.\\n\\nAd alias alias iure modi provident minima rem. Accusamus ad eius saepe culpa molestiae illum.\\n\\nQuia vitae consequatur architecto et velit magni itaque. Odit magnam tempore repudiandae error aut incidunt et. Ad est assumenda aliquid officiis.\\n\\nVoluptatem nesciunt numquam in veniam. Sed aut aspernatur\",\"created_at\":\"2020-04-24T09:17:42.000000Z\",\"updated_at\":\"2020-08-09T18:14:41.000000Z\",\"author\":{\"id\":2,\"name\":\"Test\",\"email\":\"test@springnotes.com\",\"created_at\":\"2020-08-03T18:36:29.000000Z\",\"updated_at\":\"2020-08-03T18:36:29.000000Z\"}}},\"delete_note\":{\"header\":\"Delete a note\",\"type\":\"DELETE\",\"code\":204,\"url\":\"{host}/notes/{note}\",\"params\":{},\"description\":\"\",\"response_text\":\"Returns an empty response\",\"response\":null}},\"user\":{\"get_current_user\":{\"header\":\"Get current user\",\"type\":\"GET\",\"code\":200,\"url\":\"{host}/user\",\"params\":{},\"description\":\"Gets the currently authenticated user\",\"response_text\":\"Returns the current user model\",\"response\":{\"id\":2,\"name\":\"Test\",\"email\":\"test@springnotes.com\",\"created_at\":\"2020-08-03T18:36:29.000000Z\",\"updated_at\":\"2020-08-03T18:36:29.000000Z\",\"verified\":true}},\"get_user\":{\"header\":\"Get a user\",\"type\":\"GET\",\"code\":200,\"url\":\"{host}/users/{user}\",\"params\":{},\"description\":\"Gets a user from the system\",\"response_text\":\"Returns the current user model\",\"response\":{\"id\":2,\"name\":\"Test\",\"email\":\"test@springnotes.com\",\"created_at\":\"2020-08-03T18:36:29.000000Z\",\"updated_at\":\"2020-08-03T18:36:29.000000Z\",\"verified\":true}}},\"auth\":{\"login\":{\"header\":\"Login\",\"type\":\"POST\",\"code\":204,\"url\":\"{base_host}/login\",\"params\":{\"email\":{\"type\":\"string|required\",\"description\":\"valid email address\"},\"password\":{\"type\":\"string|required\",\"description\":\"password associated with account\"}},\"description\":\"Logs a user into the system\",\"response_text\":\"Returns an empty response body\",\"response\":null},\"logout\":{\"header\":\"Logout\",\"type\":\"POST\",\"code\":204,\"url\":\"{base_host}/logout\",\"params\":{},\"description\":\"Logs a user out of the system\",\"response_text\":\"Returns an empty response body\",\"response\":null},\"register\":{\"header\":\"Register\",\"type\":\"POST\",\"code\":204,\"url\":\"{base_host}/register\",\"params\":{\"name\":{\"type\":\"string|required\",\"description\":\"A unique name\"},\"email\":{\"type\":\"string|required\",\"description\":\"A unique valid email address\"},\"password\":{\"type\":\"string|required\",\"description\":\"password to associate with account\"},\"password_confirmation\":{\"type\":\"string|required\",\"description\":\"A confirmation field for the password\"}},\"description\":\"Registers a new user to the system\",\"response_text\":\"Returns an empty response body\",\"response\":null},\"resend_verification\":{\"header\":\"Resend verification email\",\"type\":\"POST\",\"code\":204,\"url\":\"{base_host}/email/resend\",\"params\":{},\"description\":\"Sends the currently logged in email a new verification email\",\"response_text\":\"Returns an empty response body\",\"response\":null},\"password_change\":{\"header\":\"Change user password\",\"type\":\"POST\",\"code\":202,\"url\":\"{host}/password_change\",\"params\":{\"password\":{\"type\":\"string|required\",\"description\":\"password to associate with account\"},\"password_confirmation\":{\"type\":\"string|required\",\"description\":\"A confirmation field for the new password\"},\"password_current\":{\"type\":\"string|required\",\"description\":\"A confirmation field for the current password\"}},\"description\":\"Changes the current users email address\",\"response_text\":\"Returns the current user model\",\"response\":{\"id\":2,\"name\":\"Test\",\"email\":\"test@springnotes.com\",\"created_at\":\"2020-08-03T18:36:29.000000Z\",\"updated_at\":\"2020-08-03T18:36:29.000000Z\",\"verified\":true}}}}}");
 
 /***/ })
 
