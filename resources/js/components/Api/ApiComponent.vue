@@ -3,6 +3,7 @@
         <div class="row">
             <div class="offset-11">
                 <div class="position-fixed pt-5">
+                    <a class="d-block" href="#interacting">Interacting</a>
                     <a class="d-block" href="#notes">Notes</a>
                     <a class="d-block" href="#auth">Auth</a>
                     <a class="d-block" href="#user">User</a>
@@ -16,7 +17,7 @@
                 <div class="card shadow">
                     <div class="card-body">
                         <div class="card mb-2">
-                            <h1 class="card-header text-center">Interacting</h1>
+                            <h1 id="interacting" class="card-header text-center">Interacting</h1>
                             <div class="card-body">
                                 <dl>
                                     <dt>

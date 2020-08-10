@@ -48,6 +48,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -87,7 +99,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("dd", [
                 _vm._v(
-                  "\n                        Spring notes is a sample project of back end work\n                    "
+                  "\n                        Spring notes was originally a sample project of back end work\n                    "
                 )
               ]),
               _vm._v(" "),
@@ -99,7 +111,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("dd", [
                 _vm._v(
-                  '\n                        The name came about because the name of the company is "SharpSpring"\n                    '
+                  '\n                        The name came about because the name of the company was "SharpSpring"\n                    '
                 )
               ]),
               _vm._v(" "),
@@ -123,8 +135,35 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("dd", [
                 _vm._v(
-                  "\n                        Click on the log in button in the navigation, and click the register button to register a new user.\n                        Once a new user has been created, you can then access the notes page. From there, you can create, edit,\n                        and delete your notes.\n                    "
+                  '\n                        Either register a new user, or use the test user. Once registered or logged in, you can then access the notes\n                        page and some additional features. You can create/edit/delete/comment on notes created by you or other "users".\n                    '
                 )
+              ]),
+              _vm._v(" "),
+              _c("dd", [
+                _vm._v(
+                  "\n                        There is API documentation provided as well. There are instructions on obtaining tokens on the api page.\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("dt", [
+                _vm._v(
+                  "\n                        Test user credentials\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("dd", [
+                _vm._v(
+                  "\n                        Username:\n                        "
+                ),
+                _c("pre", { staticClass: "d-inline" }, [
+                  _vm._v("test@springnotes.com")
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(
+                  "\n                        Password:\n                        "
+                ),
+                _c("pre", { staticClass: "d-inline" }, [_vm._v("password")])
               ])
             ])
           ])
