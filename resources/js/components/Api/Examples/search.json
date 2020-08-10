@@ -1,0 +1,47 @@
+{
+    "results": {
+        "header": "Gets search results",
+        "type": "GET",
+        "code": 200,
+        "url": "{host}/search",
+        "params": {
+            "term": {
+                "type": "string|optional",
+                "description": "Search term to look for, separated by '<strong>+</strong>'"
+            }
+        },
+        "description": "Searches the database and returns search results",
+        "response_text": "Returns a paginated result set of notes matching search terms",
+        "response": {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": 52,
+                    "user_id": 2,
+                    "title": "This is a test title",
+                    "body": "This is a test body",
+                    "created_at": "2020-08-09T17:55:18.000000Z",
+                    "updated_at": "2020-08-09T17:55:18.000000Z",
+                    "author": {
+                        "id": 2,
+                        "name": "Test",
+                        "email": "test@springnotes.com",
+                        "created_at": "2020-08-03T18:36:29.000000Z",
+                        "updated_at": "2020-08-03T18:36:29.000000Z"
+                    }
+                },
+                "...additional entries"
+            ],
+            "first_page_url": "https://springnotes.loc/api/v1/search?query=test%20por&page=1",
+            "from": 1,
+            "last_page": 6,
+            "last_page_url": "https://springnotes.loc/api/v1/search?query=test%20por&page=6",
+            "next_page_url": "https://springnotes.loc/api/v1/search?query=test%20por&page=2",
+            "path": "https://springnotes.loc/api/v1/search",
+            "per_page": 5,
+            "prev_page_url": null,
+            "to": 3,
+            "total": 27
+        }
+    }
+}

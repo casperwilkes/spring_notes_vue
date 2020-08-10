@@ -59,68 +59,69 @@
                                     <dd>
                                         <code>user</code>: User ID
                                     </dd>
+                                    <dd>
+                                        <code>comment</code>: Comment ID
+                                    </dd>
+                                    <dd>
+                                        <code>token</code>: Token ID
+                                    </dd>
                                 </dl>
+                                <dl>
+                                    <dt>Error Response</dt>
+                                    <dd>Form errors will return the following error response bodies</dd>
+                                </dl>
+                                <pre class="prettyprint lang-json">{{ JSON.stringify(error_body, null, 4) }}</pre>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="row mt-3">
             <div class="col">
                 <h1 class="text-center">Usage</h1>
             </div>
         </div>
 
-        <div class="row my-3">
-            <div class="col">
-                <h2 class="text-center">Notes</h2>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col">
-                <ExampleComponent :requests="Examples.requests.notes"/>
-            </div>
-        </div>
-
-        <div class="row my-3">
-            <div class="col">
-                <h2 class="text-center">User</h2>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col">
-                <ExampleComponent :requests="Examples.requests.user"/>
-            </div>
-        </div>
-
-        <div class="row my-3">
-            <div class="col">
-                <h2 class="text-center">Auth</h2>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col">
-                <ExampleComponent :requests="Examples.requests.auth"/>
-            </div>
-        </div>
-
+        <ExampleComponent :header="e_key" :key="e_key" :requests="e_result" v-for="(e_result, e_key) in examples"/>
     </div>
-
 </template>
 
 <script>
-import Examples from './examples.json';
+import auth from './Examples/auth.json';
+import comments from './Examples/comments.json';
+import notes from './Examples/notes.json';
+import search from './Examples/search.json';
+import tokens from './Examples/tokens.json';
+import user from './Examples/user.json';
 
 const ExampleComponent = () => import('./ExampleComponent');
 
 export default {
     data() {
         return {
-            Examples: Examples
+            examples: {
+                notes,
+                auth,
+                user,
+                tokens,
+                comments,
+                search
+            },
+            error_body: {
+                "message": "The given data was invalid.",
+                "errors": {
+                    "example_field_1": [
+                        "error",
+                        "messages"
+                    ],
+                    "example_field_2": [
+                        "pertaining",
+                        "to field"
+                    ]
+                }
+            }
         }
     },
     mounted() {

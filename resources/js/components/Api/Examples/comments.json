@@ -1,0 +1,217 @@
+{
+    "get_all": {
+        "header": "Get all comments for a note",
+        "type": "GET",
+        "code": 200,
+        "url": "{host}/notes/{note}/comments",
+        "params": {
+            "page": {
+                "type": "int|optional",
+                "description": "Page to fetch"
+            }
+        },
+        "description": "Gets comments on a note",
+        "response_text": "Returns paginated result set of comments",
+        "response": [
+            {
+                "id": 152,
+                "commenter_id": "4",
+                "commenter_type": "App\\User",
+                "guest_name": null,
+                "guest_email": null,
+                "commentable_type": "App\\Note",
+                "commentable_id": "6",
+                "comment": "Ut adipisci voluptatem ut eum. Tenetur eum quia officia ut. Dolor sed pariatur deserunt.",
+                "approved": true,
+                "child_id": null,
+                "deleted_at": null,
+                "created_at": "2020-07-24T02:14:02.000000Z",
+                "updated_at": "2020-08-01T02:03:24.000000Z",
+                "commenter": {
+                    "id": 4,
+                    "name": "Mrs. Daisy Berge III",
+                    "email": "anabelle.rippin@example.org",
+                    "created_at": "2019-08-29T21:59:30.000000Z",
+                    "updated_at": "2019-10-03T06:35:42.000000Z"
+                },
+                "children": [
+                    {
+                        "id": 153,
+                        "commenter_id": "6",
+                        "commenter_type": "App\\User",
+                        "guest_name": null,
+                        "guest_email": null,
+                        "commentable_type": "App\\Note",
+                        "commentable_id": "6",
+                        "comment": "Totam eius non consequatur officia quisquam magni qui et. Et et et necessitatibus quibusdam totam. Quis quibusdam consequatur provident ratione velit velit earum. Sunt a voluptatem id et quaerat eum.\n\nDolor minus earum eius officiis libero repellat. Voluptate consequatur vitae eum totam. Distinctio fugiat saepe et iusto tenetur.\n\nPorro quia minima numquam cupiditate est tempora dolorum. Ut sit minus labore maiores eum sit. Fugit excepturi distinctio quasi doloremque.",
+                        "approved": true,
+                        "child_id": 152,
+                        "deleted_at": null,
+                        "created_at": "2020-08-03T08:25:41.000000Z",
+                        "updated_at": "2020-08-03T11:34:13.000000Z",
+                        "commenter": {
+                            "id": 6,
+                            "name": "Dr. Larue Olson",
+                            "email": "garett01@example.com",
+                            "created_at": "2020-04-15T08:56:24.000000Z",
+                            "updated_at": "2020-04-15T08:56:24.000000Z"
+                        },
+                        "children": []
+                    },
+                    "...additional entries"
+                ]
+            },
+            "...additional entries"
+        ]
+    },
+    "create": {
+        "header": "Create a new comment",
+        "type": "POST",
+        "code": 201,
+        "url": "{host}/comments",
+        "params": {
+            "commentable_type": {
+                "type": "string|required",
+                "description": "Object to attach comment to (Note: <code>\\\\App\\\\Note</code>)"
+            },
+            "commentable_id": {
+                "type": "string|required",
+                "description": "ID of note to attach comment to"
+            },
+            "message": {
+                "type": "string|required",
+                "description": "Comment message body"
+            }
+        },
+        "description": "Adds a comment to a note object",
+        "response_text": "Returns the comment model along with original model commented on",
+        "response": {
+            "commenter_id": 2,
+            "commenter_type": "App\\User",
+            "commentable_id": 6,
+            "commentable_type": "App\\Note",
+            "comment": "Adding a message",
+            "approved": true,
+            "updated_at": "2020-08-10T05:43:35.000000Z",
+            "created_at": "2020-08-10T05:43:35.000000Z",
+            "id": 3817,
+            "commenter": {
+                "id": 2,
+                "name": "Test",
+                "email": "test@springnotes.com",
+                "created_at": "2020-08-03T18:36:29.000000Z",
+                "updated_at": "2020-08-03T18:36:29.000000Z"
+            },
+            "commentable": {
+                "id": 6,
+                "user_id": 2,
+                "title": "Libero est sed totam repudiandae.",
+                "body": "Voluptas ut voluptates architecto et minima. Perspiciatis debitis sequi architecto est. Laboriosam provident sint labore adipisci animi est. Distinctio et quis quaerat quas voluptatem a enim.\n\nDeserunt et dolor et voluptatem. Et quibusdam error optio repudiandae nam. Consequatur aliquid consequatur libero autem non sapiente earum.\n\nFugiat hic est assumenda in necessitatibus. Sapiente sit quaerat dolore quia voluptatem velit quia quidem. Eum libero rerum omnis laborum.\n\nUnde inventore aspernatur dolorem optio est beatae. Ut id et natus quibusdam. Aliquam non aliquam dignissimos consequatur.",
+                "created_at": "2019-12-03T21:32:47.000000Z",
+                "updated_at": "2020-02-24T04:18:22.000000Z",
+                "author": {
+                    "id": 2,
+                    "name": "Test",
+                    "email": "test@springnotes.com",
+                    "created_at": "2020-08-03T18:36:29.000000Z",
+                    "updated_at": "2020-08-03T18:36:29.000000Z"
+                }
+            }
+        }
+    },
+    "reply": {
+        "header": "Reply to a comment",
+        "type": "POST",
+        "code": 202,
+        "url": "{host}/comments/{comment}",
+        "params": {
+            "message": {
+                "type": "string|required",
+                "description": "Comment message body"
+            }
+        },
+        "description": "Adds a reply to a comment",
+        "response_text": "Returns comment model and attached parent model",
+        "response": {
+            "commenter_id": 2,
+            "commenter_type": "App\\User",
+            "commentable_id": 1,
+            "commentable_type": "App\\Note",
+            "child_id": 8,
+            "comment": "Adding a message",
+            "approved": true,
+            "updated_at": "2020-08-10T05:50:08.000000Z",
+            "created_at": "2020-08-10T05:50:08.000000Z",
+            "id": 3818,
+            "commenter": {
+                "id": 2,
+                "name": "Test",
+                "email": "test@springnotes.com",
+                "created_at": "2020-08-03T18:36:29.000000Z",
+                "updated_at": "2020-08-03T18:36:29.000000Z"
+            },
+            "commentable": {
+                "id": 1,
+                "user_id": 17,
+                "title": "Odio distinctio doloribus omnis qui voluptates molestiae sed porro.",
+                "body": "Reprehenderit nisi ut quia laboriosam. Ut non eius et quasi. Voluptatem error quia aperiam aut facilis consequatur ex. Eos vitae placeat ipsa ipsa expedita quibusdam. Ut facere iusto non reiciendis blanditiis expedita rerum.\n\nQui repellat amet laborum delectus ullam quia magnam suscipit. Dolor excepturi maiores veniam sed qui. Error eligendi eligendi ullam aperiam voluptatem optio.",
+                "created_at": "2019-10-01T13:50:55.000000Z",
+                "updated_at": "2019-10-01T13:50:55.000000Z",
+                "author": {
+                    "id": 17,
+                    "name": "Brooks Lehner Sr.",
+                    "email": "pouros.liza@example.net",
+                    "created_at": "2019-12-12T07:22:35.000000Z",
+                    "updated_at": "2019-12-12T07:22:35.000000Z"
+                }
+            },
+            "parent": {
+                "id": 8,
+                "commenter_id": "4",
+                "commenter_type": "App\\User",
+                "guest_name": null,
+                "guest_email": null,
+                "commentable_type": "App\\Note",
+                "commentable_id": "1",
+                "comment": "Corporis quasi non maiores quia aut. Harum cum fugiat et quisquam qui. Asperiores illum quia optio.",
+                "approved": true,
+                "child_id": 7,
+                "deleted_at": null,
+                "created_at": "2020-06-08T14:13:58.000000Z",
+                "updated_at": "2020-07-12T01:48:06.000000Z",
+                "commenter": {
+                    "id": 4,
+                    "name": "Mrs. Daisy Berge III",
+                    "email": "anabelle.rippin@example.org",
+                    "created_at": "2019-08-29T21:59:30.000000Z",
+                    "updated_at": "2019-10-03T06:35:42.000000Z"
+                },
+                "commentable": {
+                    "id": 1,
+                    "user_id": 17,
+                    "title": "Odio distinctio doloribus omnis qui voluptates molestiae sed porro.",
+                    "body": "Reprehenderit nisi ut quia laboriosam. Ut non eius et quasi. Voluptatem error quia aperiam aut facilis consequatur ex. Eos vitae placeat ipsa ipsa expedita quibusdam. Ut facere iusto non reiciendis blanditiis expedita rerum.\n\nQui repellat amet laborum delectus ullam quia magnam suscipit. Dolor excepturi maiores veniam sed qui. Error eligendi eligendi ullam aperiam voluptatem optio.",
+                    "created_at": "2019-10-01T13:50:55.000000Z",
+                    "updated_at": "2019-10-01T13:50:55.000000Z",
+                    "author": {
+                        "id": 17,
+                        "name": "Brooks Lehner Sr.",
+                        "email": "pouros.liza@example.net",
+                        "created_at": "2019-12-12T07:22:35.000000Z",
+                        "updated_at": "2019-12-12T07:22:35.000000Z"
+                    }
+                }
+            }
+        }
+    },
+    "delete": {
+        "header": "Delete a comment",
+        "type": "delete",
+        "code": 204,
+        "url": "{host}/comments/{comment}",
+        "params": {},
+        "description": "Deletes a comment from a note",
+        "response_text": "Returns an empty response",
+        "response": null
+    }
+}

@@ -40,9 +40,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    requests: Object
+    requests: Object,
+    header: String
   }
 });
 
@@ -63,64 +77,89 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "fragment",
-    _vm._l(_vm.requests, function(e_type, e_type_id) {
-      return _c("div", { key: e_type_id, staticClass: "card mb-2 shadow" }, [
-        _c("p", { staticClass: "h3 card-header text-capitalize" }, [
-          _vm._v(_vm._s(e_type.header))
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c(
-            "dl",
-            [
-              _c("dt", [_vm._v("Description")]),
-              _vm._v(" "),
-              _c("dd", { domProps: { innerHTML: _vm._s(e_type.description) } }),
-              _vm._v(" "),
-              _c("dt", [_vm._v("Request")]),
-              _vm._v(" "),
-              _c("dd", [
-                _vm._v(_vm._s(e_type.type) + " - "),
-                _c("code", [_vm._v(_vm._s(e_type.url))])
-              ]),
-              _vm._v(" "),
-              _c("dt", [_vm._v("Parameters")]),
-              _vm._v(" "),
-              Object.keys(e_type.params).length === 0
-                ? _c("dd", [_vm._v("No parameters")])
-                : _vm._l(e_type.params, function(param, param_id) {
-                    return _c("dd", { key: param_id }, [
-                      _c("code", [_vm._v(_vm._s(param_id))]),
-                      _vm._v(": "),
-                      _c("code", [_vm._v(_vm._s(param.type))]),
-                      _vm._v("\n                    - "),
-                      _c("span", {
-                        domProps: { innerHTML: _vm._s(param.description) }
-                      })
-                    ])
-                  }),
-              _vm._v(" "),
-              _c("dt", [_vm._v("Response Code")]),
-              _vm._v(" "),
-              _c("dd", [_c("code", [_vm._v(_vm._s(e_type.code))])]),
-              _vm._v(" "),
-              _c("dt", [_vm._v("Response Body")]),
-              _vm._v(" "),
-              _c("dd", [_vm._v(_vm._s(e_type.response_text))])
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c("pre", { staticClass: "prettyprint lang-json" }, [
-            _vm._v(_vm._s(JSON.stringify(e_type.response, null, 4)))
-          ])
+  return _c("div", [
+    _c("div", { staticClass: "row my-3" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("h2", { staticClass: "text-center text-capitalize" }, [
+          _vm._v(_vm._s(_vm.header))
         ])
       ])
-    }),
-    0
-  )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c(
+        "div",
+        { staticClass: "col" },
+        _vm._l(_vm.requests, function(e_type, e_type_id) {
+          return _c(
+            "div",
+            { key: e_type_id, staticClass: "card mb-2 shadow" },
+            [
+              _c("p", { staticClass: "h3 card-header text-capitalize" }, [
+                _vm._v(_vm._s(e_type.header))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c(
+                  "dl",
+                  [
+                    _c("dt", [_vm._v("Description")]),
+                    _vm._v(" "),
+                    _c("dd", {
+                      domProps: { innerHTML: _vm._s(e_type.description) }
+                    }),
+                    _vm._v(" "),
+                    _c("dt", [_vm._v("Request")]),
+                    _vm._v(" "),
+                    _c("dd", [
+                      _c("span", { staticClass: "text-uppercase" }, [
+                        _vm._v(_vm._s(e_type.type))
+                      ]),
+                      _vm._v("\n                            - "),
+                      _c("code", [_vm._v(_vm._s(e_type.url))])
+                    ]),
+                    _vm._v(" "),
+                    _c("dt", [_vm._v("Parameters")]),
+                    _vm._v(" "),
+                    Object.keys(e_type.params).length === 0
+                      ? _c("dd", [_vm._v("No parameters")])
+                      : _vm._l(e_type.params, function(param, param_id) {
+                          return _c("dd", { key: param_id }, [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(param_id) +
+                                ": "
+                            ),
+                            _c("code", [_vm._v(_vm._s(param.type))]),
+                            _vm._v("\n                            - "),
+                            _c("span", {
+                              domProps: { innerHTML: _vm._s(param.description) }
+                            })
+                          ])
+                        }),
+                    _vm._v(" "),
+                    _c("dt", [_vm._v("Response Code")]),
+                    _vm._v(" "),
+                    _c("dd", [_c("code", [_vm._v(_vm._s(e_type.code))])]),
+                    _vm._v(" "),
+                    _c("dt", [_vm._v("Response Body")]),
+                    _vm._v(" "),
+                    _c("dd", [_vm._v(_vm._s(e_type.response_text))])
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _c("pre", { staticClass: "prettyprint lang-json" }, [
+                  _vm._v(_vm._s(JSON.stringify(e_type.response, null, 4)))
+                ])
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
