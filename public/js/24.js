@@ -111,6 +111,17 @@ var _Examples_user_json__WEBPACK_IMPORTED_MODULE_5___namespace = /*#__PURE__*/__
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -174,6 +185,8 @@ var render = function() {
     "div",
     { attrs: { id: "api" } },
     [
+      _vm._m(0),
+      _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-sm-10 mb-2" }, [
           _c("div", { staticClass: "card shadow" }, [
@@ -184,9 +197,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
                   _vm._m(1),
+                  _vm._v(" "),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c("pre", { staticClass: "prettyprint lang-json" }, [
                     _vm._v(_vm._s(JSON.stringify(_vm.error_body, null, 4)))
@@ -198,7 +211,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(2),
+      _vm._m(3),
       _vm._v(" "),
       _vm._l(_vm.examples, function(e_result, e_key) {
         return _c("ExampleComponent", {
@@ -211,6 +224,36 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "offset-11" }, [
+        _c("div", { staticClass: "position-fixed pt-5" }, [
+          _c("a", { staticClass: "d-block", attrs: { href: "#notes" } }, [
+            _vm._v("Notes")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "d-block", attrs: { href: "#auth" } }, [
+            _vm._v("Auth")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "d-block", attrs: { href: "#user" } }, [
+            _vm._v("User")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "d-block", attrs: { href: "#tokens" } }, [
+            _vm._v("Tokens")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "d-block", attrs: { href: "#comments" } }, [
+            _vm._v("Comments")
+          ])
+        ])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -2,12 +2,12 @@
     <div>
         <div class="row my-3">
             <div class="col">
-                <h2 class="text-center text-capitalize">{{ header }}</h2>
+                <h2 class="text-center text-capitalize" :id="header">{{ header }}</h2>
             </div>
         </div>
 
-        <div class="row justify-content-center">
-            <div class="col">
+        <div class="row">
+            <div class="col-11">
                 <div :key="e_type_id" class="card mb-2 shadow" v-for="(e_type, e_type_id) in requests">
                     <p class="h3 card-header text-capitalize">{{ e_type.header }}</p>
                     <div class="card-body">

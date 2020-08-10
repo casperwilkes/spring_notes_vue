@@ -1,5 +1,16 @@
 <template>
     <div id="api">
+        <div class="row">
+            <div class="offset-11">
+                <div class="position-fixed pt-5">
+                    <a class="d-block" href="#notes">Notes</a>
+                    <a class="d-block" href="#auth">Auth</a>
+                    <a class="d-block" href="#user">User</a>
+                    <a class="d-block" href="#tokens">Tokens</a>
+                    <a class="d-block" href="#comments">Comments</a>
+                </div>
+            </div>
+        </div>
         <div class="row justify-content-center">
             <div class="col-sm-10 mb-2">
                 <div class="card shadow">

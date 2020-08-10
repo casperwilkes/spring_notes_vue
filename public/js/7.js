@@ -80,16 +80,21 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "row my-3" }, [
       _c("div", { staticClass: "col" }, [
-        _c("h2", { staticClass: "text-center text-capitalize" }, [
-          _vm._v(_vm._s(_vm.header))
-        ])
+        _c(
+          "h2",
+          {
+            staticClass: "text-center text-capitalize",
+            attrs: { id: _vm.header }
+          },
+          [_vm._v(_vm._s(_vm.header))]
+        )
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-center" }, [
+    _c("div", { staticClass: "row" }, [
       _c(
         "div",
-        { staticClass: "col" },
+        { staticClass: "col-11" },
         _vm._l(_vm.requests, function(e_type, e_type_id) {
           return _c(
             "div",
